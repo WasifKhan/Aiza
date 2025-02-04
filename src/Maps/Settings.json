@@ -1,0 +1,51 @@
+{
+  "createdTime": "2016-05-06T23:00:18Z",
+  "modifiedTime": "2024-08-22T11:51:08.703Z",
+  "deviceSettings": [{
+    "deviceTag": 459354597,
+    "reportingEnabled": false,
+    "devicePrettyName": "SM-S926W",
+    "platformType": "ANDROID",
+    "deviceCreationTime": "2024-03-23T00:32:10.276Z",
+    "latestLocationReportingSettingChange": {
+      "reportingEnabledModificationTime": "2024-06-08T10:40:00.900Z"
+    },
+    "androidOsLevel": 34,
+    "deviceSpec": {
+      "manufacturer": "samsung",
+      "brand": "samsung",
+      "product": "e2qcsx",
+      "device": "e2q",
+      "model": "SM-S926W",
+      "isLowRam": false
+    },
+    "deviceActiveness": {
+      "hasSavedTimelineData": true,
+      "observedPlaceVisitsFor30PercentOfTheLast7d": true
+    }
+  }],
+  "hasReportedLocations": true,
+  "hasSetRetention": false,
+  "storeVisitControl": {
+    "enabled": true,
+    "updateTime": "2022-07-20T16:10:48.836766071Z"
+  },
+  "timelineEditUploadsControl": {
+    "enabled": true,
+    "updateTime": "2024-06-08T08:24:55.170221951Z"
+  },
+  "encryptedBackupsControls": {
+    "459354597": {
+      "enabled": false
+    }
+  },
+  "retentionControl": {
+    "retentionWindowDays": 2147483647
+  },
+  "timelineEnabled": true,
+  "timelineDeletionTime": "2024-06-10T08:07:12.633Z",
+  "googleOpinionRewardsControl": {
+    "enabled": false,
+    "updateTime": "2024-08-07T20:15:21.133067621Z"
+  }
+}

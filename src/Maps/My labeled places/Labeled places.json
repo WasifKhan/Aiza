@@ -1,0 +1,61 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          -79.7607312,
+          43.5666376
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "address": "3464 Nighthawk Trail, Mississauga, ON L5N 6G3, Canada",
+        "name": "Home"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -79.8411852,
+          43.314888599999996
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "address": "340 Plains Rd E, Burlington, ON L7T 0C2, Canada",
+        "name": "Work"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -79.4501385,
+          43.662519499999995
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "address": "208 Symington Ave, Toronto, ON M6P 3W6, Canada",
+        "name": "Nerj"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -79.70636879999999,
+          43.5581557
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "address": "2520 Eglinton Ave W, Mississauga, ON L5M 0Y4, Canada",
+        "name": "Labeeb"
+      },
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+}

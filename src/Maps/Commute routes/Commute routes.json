@@ -1,0 +1,123 @@
+{"trips": [
+  {
+    "id": "39697A9DEDDCCF4B",
+    "place_visit": [
+      {"id": "SOURCE_ID"},
+      {
+        "id": "DESTINATION_ID",
+        "place": {
+          "lat_lng": {
+            "latitude": 43.6218431,
+            "longitude": -79.7836784
+          },
+          "semantic_type": "TYPE_UNKNOWN"
+        }
+      }
+    ],
+    "transition": [{
+      "route": {"travel_mode": "DRIVE"},
+      "origin": {"visit_id": "SOURCE_ID"},
+      "destination": {"visit_id": "DESTINATION_ID"}
+    }]
+  },
+  {
+    "id": "46F1E6129170EC65",
+    "place_visit": [
+      {"id": "SOURCE_ID"},
+      {
+        "id": "DESTINATION_ID",
+        "place": {
+          "lat_lng": {
+            "latitude": 43.5505139,
+            "longitude": -79.6664421
+          },
+          "semantic_type": "TYPE_UNKNOWN"
+        }
+      }
+    ],
+    "transition": [{
+      "route": {"travel_mode": "DRIVE"},
+      "origin": {"visit_id": "SOURCE_ID"},
+      "destination": {"visit_id": "DESTINATION_ID"}
+    }]
+  },
+  {
+    "id": "50B423106D6B39D9",
+    "place_visit": [
+      {"id": "SOURCE_ID"},
+      {
+        "id": "DESTINATION_ID",
+        "place": {
+          "lat_lng": {
+            "latitude": 40.7463151,
+            "longitude": -73.9406107
+          },
+          "semantic_type": "TYPE_UNKNOWN"
+        }
+      }
+    ],
+    "transition": [{
+      "route": {"travel_mode": "DRIVE"},
+      "origin": {"visit_id": "SOURCE_ID"},
+      "destination": {"visit_id": "DESTINATION_ID"}
+    }]
+  },
+  {
+    "recurrence": {"weekly_pattern": {"day": [
+      {"day": 1},
+      {"day": 2},
+      {"day": 3},
+      {"day": 4},
+      {"day": 5}
+    ]}},
+    "id": "commute_to_home",
+    "place_visit": [
+      {
+        "departure_timing": {"time": {
+          "hour": 17,
+          "minute": 0,
+          "second": 0
+        }},
+        "id": "2D9BA7518D15C1B6",
+        "place": {"semantic_type": "TYPE_WORK"}
+      },
+      {
+        "id": "2D9BA7518ED58723",
+        "place": {"semantic_type": "TYPE_HOME"}
+      }
+    ],
+    "transition": [{
+      "origin": {"visit_id": "2D9BA7518D15C1B6"},
+      "destination": {"visit_id": "2D9BA7518ED58723"}
+    }]
+  },
+  {
+    "recurrence": {"weekly_pattern": {"day": [
+      {"day": 1},
+      {"day": 2},
+      {"day": 3},
+      {"day": 4},
+      {"day": 5}
+    ]}},
+    "id": "commute_to_work",
+    "place_visit": [
+      {
+        "id": "2D9BA7517D7EB6E4",
+        "place": {"semantic_type": "TYPE_HOME"}
+      },
+      {
+        "id": "2D9BA7517FC2C096",
+        "place": {"semantic_type": "TYPE_WORK"},
+        "arrival_timing": {"time": {
+          "hour": 9,
+          "minute": 0,
+          "second": 0
+        }}
+      }
+    ],
+    "transition": [{
+      "origin": {"visit_id": "2D9BA7517D7EB6E4"},
+      "destination": {"visit_id": "2D9BA7517FC2C096"}
+    }]
+  }
+]}
