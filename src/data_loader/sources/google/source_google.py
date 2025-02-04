@@ -152,7 +152,7 @@ class Google(Sources):
 # ====================================
     def fetch_google_maps(self):
         # Load the Google Takeout JSON file
-        with open("./Maps/My labeled places/Labeled places.json", "r", encoding="utf-8") as f:
+        with open("./data_loader/sources/google/Maps/My labeled places/Labeled places.json", "r", encoding="utf-8") as f:
             data = load(f)
 
         # Extract first 5 pinned locations
