@@ -10,17 +10,14 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 
 class Google(Sources):
     def __init__(self):
-        super().__init__()
-# ====================================
-# 1️⃣ Unified OAuth 2.0 Authentication
-# ====================================
         self.scopes = [
             "https://www.googleapis.com/auth/drive.readonly",
             "https://www.googleapis.com/auth/gmail.readonly",
             "https://www.googleapis.com/auth/calendar.readonly",
             "https://www.googleapis.com/auth/youtube.readonly"
             ]
-        self.authenticate()
+        self._authenticate()
+        '''
         print("\n📂 **Google Drive Files:**")
         for file in self.fetch_google_drive()[0:5]:
             print(f"- {file['name']} (ID: {file['id']})")
@@ -48,9 +45,10 @@ class Google(Sources):
             # Extract place name (if available)
             name = place["properties"].get("Title", "Unnamed Place")
             print(f"- 📍 {name} | 📌 {address} | 🗺️ Coordinates: {lat}, {lng}")
+        '''
 
 
-    def authenticate(self):
+    def _authenticate(self):
 # Authenticate using OAuth (Single Authentication for all APIs)
         flow = InstalledAppFlow.from_client_secrets_file("./data_loader/sources/google/credentials.json", self.scopes)
         creds = flow.run_local_server(port=0)
@@ -63,8 +61,14 @@ class Google(Sources):
             "youtube": build("youtube", "v3", credentials=creds)
         }
 
-    def load_source(self):
-        pass
+    def process(self, data_generator):
+        for file in self.fetch_google_drive():
+            print(f"Processing file: {file}")
+            if good := self.process_file(file):
+                data = data_generator.generate_data(good)
+            print(f"Datapoint generated:\n{data}")
+
+
 # ====================================
 # 2️⃣ Fetch Google Drive Data
 # ====================================
@@ -74,53 +78,51 @@ class Google(Sources):
         query = "'root' in parents or mimeType != 'application/vnd.google-apps.folder'"
         results = drive_service.files().list(q=query, pageSize=1000, fields="files(id, name, mimeType)").execute()
         all_files = results.get("files", [])
+        return all_files
 
-        # Define export formats for Google Docs formats
+    def process_file(self, file):
+        """Processes a file from Google Drive without downloading it."""
+        file_id = file["id"]
+        file_name = file["name"]
+        mime_type = file["mimeType"]
         GOOGLE_DOC_EXPORTS = {
             "application/vnd.google-apps.document": "text/plain",  # Google Docs → Plain Text
             "application/vnd.google-apps.spreadsheet": "text/csv",  # Google Sheets → CSV
             "application/vnd.google-apps.presentation": "text/plain"  # Google Slides → Plain Text
         }
 
-        def process_file(file):
-            """Processes a file from Google Drive without downloading it."""
-            file_id = file["id"]
-            file_name = file["name"]
-            mime_type = file["mimeType"]
+        drive_service = self.services["drive"]
+        print(f"📂 Processing: {file_name} ({mime_type})")
 
-            print(f"📂 Processing: {file_name} ({mime_type})")
+        if mime_type in GOOGLE_DOC_EXPORTS:
+            # Google Docs, Sheets, and Slides: Export & Process as text
+            request = drive_service.files().export_media(fileId=file_id, mimeType=GOOGLE_DOC_EXPORTS[mime_type])
+            file_content = request.execute().decode("utf-8")
+            # print(f"📜 Extracted Content (Google Doc/Sheet): {file_content[:500]}...\n")
 
-            if mime_type in GOOGLE_DOC_EXPORTS:
-                # Google Docs, Sheets, and Slides: Export & Process as text
-                request = drive_service.files().export_media(fileId=file_id, mimeType=GOOGLE_DOC_EXPORTS[mime_type])
-                file_content = request.execute().decode("utf-8")
-                print(f"📜 Extracted Content (Google Doc/Sheet): {file_content[:500]}...\n")
+        elif mime_type.startswith("image/"):
+            return None
+            # Image Processing: Just log (OCR or AI processing can be done here)
+            # print(f"🖼️ Skipping image file: {file_name}")
 
-            elif mime_type.startswith("image/"):
-                # Image Processing: Just log (OCR or AI processing can be done here)
-                print(f"🖼️ Skipping image file: {file_name}")
+        elif mime_type == "application/pdf":
+            # PDF Processing: Extract text without saving
+            request = drive_service.files().get_media(fileId=file_id)
+            file_content = BytesIO(request.execute())  # Stream content
+            # print(f"📄 PDF processed: {file_name} (Size: {len(file_content.getvalue())} bytes)\n")
 
-            elif mime_type == "application/pdf":
-                # PDF Processing: Extract text without saving
-                request = drive_service.files().get_media(fileId=file_id)
-                file_content = BytesIO(request.execute())  # Stream content
-                print(f"📄 PDF processed: {file_name} (Size: {len(file_content.getvalue())} bytes)\n")
+        elif mime_type.startswith("text/"):
+            # Plain text files: Read content
+            request = drive_service.files().get_media(fileId=file_id)
+            file_content = request.execute().decode("utf-8")
+            # print(f"📝 Text File Content: {file_content[:500]}...\n")
 
-            elif mime_type.startswith("text/"):
-                # Plain text files: Read content
-                request = drive_service.files().get_media(fileId=file_id)
-                file_content = request.execute().decode("utf-8")
-                print(f"📝 Text File Content: {file_content[:500]}...\n")
-
-            else:
-                print(f"⚠️ Unsupported file type: {mime_type}")
-        return all_files
-            
+        else:
+            return None
+            # print(f"⚠️ Unsupported file type: {mime_type}")
+        return file_content
 
 
-# ====================================
-# 3️⃣ Fetch Gmail Data
-# ====================================
     def fetch_gmail(self):
         gmail_service = self.services["gmail"]
         results = gmail_service.users().messages().list(userId="me", labelIds=["INBOX"]).execute()
@@ -130,35 +132,20 @@ class Google(Sources):
             messages.append({"id": msg["id"], "snippet": msg_detail["snippet"]})
         return messages
 
-# ====================================
-# 4️⃣ Fetch Google Calendar Events
-# ====================================
     def fetch_google_calendar(self):
         calendar_service = self.services["calendar"]
         results = calendar_service.events().list(calendarId="primary").execute()
         return results.get("items", [])
 
 
-# ====================================
-# 6️⃣ Fetch YouTube Watch History
-# ====================================
     def fetch_youtube_history(self):
         youtube_service = self.services["youtube"]
         results = youtube_service.activities().list(part="snippet", mine=True).execute()
         return [{"title": item["snippet"].get("title", "No Title Available"), "published": item["snippet"].get("publishedAt", "Unknown Date")} for item in results.get("items", [])]
 
-# ====================================
-# 7️⃣ Fetch Google Maps Data (Separate API Key)
-# ====================================
     def fetch_google_maps(self):
         # Load the Google Takeout JSON file
         with open("./data_loader/sources/google/Maps/My labeled places/Labeled places.json", "r", encoding="utf-8") as f:
             data = load(f)
-
-        # Extract first 5 pinned locations
         locations = data["features"]
-
         return locations
-
-        
-

@@ -7,9 +7,8 @@ and fetching responses from a fine-tuned model trained on user information.
 Usage:
     Run the script from the command line with a mode argument:
     
-        python main.py train
-        python main.py test_train
-        python main.py test_run
+        python main.py generate_data 
+        python main.py learn_user
         python main.py run
 
 Modes:
@@ -20,17 +19,18 @@ Modes:
 
 Dependencies:
     - Python 3.x
+    - OpenAI (for chatbot engine)
     - Requests (for API calls)
-    - googlemaps (for google maps data)
-    - googleapiclient (for all other google data)
+    - Google Maps (for Google Maps data)
+    - Google Api Client (for all other Google data)
 
 Installation:
     Install required dependencies using pip:
 
-        pip install requests googlemaps googleapiclient
+        pip install openai requests googlemaps googleapiclient
 
 Author:
-    Your Name <wasif.k1112@gmail.com>
+    Wasif Khan <wasif.k1112@gmail.com>
 """
 
 
@@ -49,17 +49,14 @@ def main(mode: str):
     Raises:
         ValueError: If an invalid mode is provided.
     """
-    config = {'model': 'GPT'}
+    config = {'model': 'GPT', 'sources': ['google']}
     if mode == "generate_data":
-        config['sources'] = []
         aiza = Aiza(config)
         aiza.generate_data()
     elif mode == "learn_user":
-        config['sources'] = ['google']
         aiza = Aiza(config)
         aiza.learn_user()
     elif mode == "run":
-        config['sources'] = ['google drive']
         aiza = Aiza(config)
         aiza.run()
     else:

@@ -6,10 +6,6 @@ class BaseModel(ABC):
         pass
 
     @abstractmethod
-    def generate_data(self):
-        pass
-
-    @abstractmethod
     def learn_user(self):
         pass
 

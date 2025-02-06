@@ -6,9 +6,9 @@ class Sources(ABC):
         pass
 
     @abstractmethod
-    def authenticate(self):
+    def _authenticate(self, sources):
         pass
 
     @abstractmethod
-    def load_source(self):
+    def process(self):
         pass

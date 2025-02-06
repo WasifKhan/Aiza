@@ -1,10 +1,13 @@
+from data_loader.data_loader import DataLoader
+
+
 class Aiza:
     """
     A chatbot system that interacts with users through 
     learning their personal information.
 
     Attributes:
-        ai: AI used for chat interactions
+        chatbot: AI used for chat interactions
         sources: Sources used for learning
     """
 
@@ -17,7 +20,7 @@ class Aiza:
         """
         if config['model'] == 'GPT':
             from models.gpt.gpt import GPT
-            self.ai = GPT()
+            self.chatbot = GPT()
         self.sources = config['sources']
 
     def generate_data(self):
@@ -25,16 +28,16 @@ class Aiza:
         Generates the 'training_data.jsonl' file from all provided sources.
         Requires permissions from user.
         """
-        self.ai.generate_data()
+        DataLoader(self.sources)
 
     def learn_user(self):
         """
         Learns the user from data stored in the 'training_data.jsonl' file
         """
-        self.ai.learn_user()
+        self.chatbot.learn_user()
 
     def run(self):
         """
         Runs the AI for chat interactions.
         """
-        self.ai.run()
+        self.chatbot.run()

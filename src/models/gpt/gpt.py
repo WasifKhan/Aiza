@@ -1,20 +1,22 @@
-from openai import OpenAI
 from models.base_model import BaseModel
+from keys.keys import OPENAI_API_KEY
+from openai import OpenAI
 
 
 class GPT(BaseModel):
     def __init__(self):
-        self.model = OpenAI()
+        self.model = OpenAI(api_key=OPENAI_API_KEY)
         self.model_version = "gpt-3.5-turbo-0125"
         self.model_location = "./artifacts/model.txt"
         self.training_data_location = "./artifacts/training_data.jsonl"
         self.conversation_history = []
 
-    def generate_data(self):
-        pass
-
     def learn_user(self):
-        print("Learning user information")
+        from os import path
+        if not path.exists(self.training_data_location):
+            print("Error: Must generate training_data.jsonl file before \
+                    running this command.\n")
+            return
         data_file = self.model.files.create(
             file=open(self.training_data_location, "rb"), purpose="fine-tune")
         job = self.model.fine_tuning.jobs.create(
@@ -24,7 +26,7 @@ class GPT(BaseModel):
         while not (model := self.model.fine_tuning.jobs.retrieve(
                 job.id).fine_tuned_model):
             print(f"Learning user information{dot}")
-            dot = "" if len(dot) == 5 else dot + "."
+            dot = "." if len(dot) == 5 else dot + "."
             sleep(60)
         with open(self.model_location, "w", encoding="utf-8") as file:
             file.write(model)
