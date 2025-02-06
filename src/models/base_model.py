@@ -6,10 +6,17 @@ class BaseModel(ABC):
         pass
 
     @abstractmethod
-    def start(self):
+    def generate_data(self):
+        pass
+
+    @abstractmethod
+    def learn_user(self):
+        pass
+
+    @abstractmethod
+    def run(self):
         pass
 
     @abstractmethod
     def _chat(self, user_input):
         pass
-
