@@ -1,6 +1,6 @@
 # Aiza - AI Personal Assistant
 
-![Aiza Logo](https://via.placeholder.com/800x200.png?text=Aiza+AI+Personal+Assistant)
+![Aiza Logo](https://github.com/WasifKhan/Aiza/blob/master/Aiza%20logo.png)
 
 ## Overview
 Aiza is an advanced AI personal assistant designed to learn and adapt to your preferences using information from sources you provide access to. By integrating with Google and Meta services, Aiza helps streamline your digital life, offering personalized assistance based on your data.
