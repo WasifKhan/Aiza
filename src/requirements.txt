@@ -1,5 +1,0 @@
-openai
-requests
-googlemaps
-google-api-python-client
-
