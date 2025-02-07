@@ -25,21 +25,17 @@ class DataGenerator:
                 """
         print('Gathering valid files')
         file_names = ' '.join([file['name'] for file in files])
-        print(f'files: {file_names}')
         message = [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": file_names}
                 ]
-        print('prompting GPT for response\n\n')
         response = self.model.chat.completions.create(
                 model='gpt-4o', messages=message)
         reply = response.choices[0].message.content
-        print(reply)
         valid_files = []
-        for name, index in enumerate(reply.split()):
+        for index, name in enumerate(reply.split()):
             if name == "True":
                 valid_files.append(files[index])
-        print(f"ChatGPT response for \n{file_names}:\n{reply}")
         return valid_files
 
     def generate_data(self, data_source):

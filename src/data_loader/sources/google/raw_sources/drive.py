@@ -60,6 +60,4 @@ class Drive(BaseProcessor):
         print(f"file content:\n{file_content}\n{'*'*10}\nRESPONSE\n{'*'*10}\n")
         print(f"{datapoint}\n")
 
-        return file_content
-
 
