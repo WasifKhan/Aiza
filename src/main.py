@@ -49,7 +49,7 @@ def main(mode: str):
     Raises:
         ValueError: If an invalid mode is provided.
     """
-    config = {'model': 'GPT', 'sources': ['google']}
+    config = {'model': 'GPT', 'sources': ['google'], 'user': 'Wasif'}
     if mode == "generate_data":
         aiza = Aiza(config)
         aiza.generate_data()

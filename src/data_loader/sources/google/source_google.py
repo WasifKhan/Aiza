@@ -23,20 +23,19 @@ class Google(Sources):
         self.maps_location = "./data_loader/sources/google/Maps/\
                 My labeled places/Labeled places.json"
 
-    def authenticate(self):
+    def authenticate(self, user):
         flow = InstalledAppFlow.from_client_secrets_file(self.key, self.scopes)
         creds = flow.run_local_server(port=0)
-
         self.services['drive'] = Drive(
-                build("drive", "v3", credentials=creds))
+                user, build("drive", "v3", credentials=creds))
         self.services['mail'] = Mail(
-                build("gmail", "v1", credentials=creds))
+                user, build("gmail", "v1", credentials=creds))
         self.services['maps'] = Maps(
-                self.maps_location)
+                user, self.maps_location)
         self.services['calendar'] = Calendar(
-                build("calendar", "v3", credentials=creds))
+                user, build("calendar", "v3", credentials=creds))
         self.services['youtube'] = YouTube(
-                build("youtube", "v3", credentials=creds))
+                user, build("youtube", "v3", credentials=creds))
 
     def process(self):
         for key in self.services:

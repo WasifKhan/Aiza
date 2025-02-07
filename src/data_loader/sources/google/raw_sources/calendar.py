@@ -3,8 +3,9 @@ from datetime import datetime
 
 
 class Calendar(BaseProcessor):
-    def __init__(self, service):
+    def __init__(self, user, service):
         super().__init__()
+        self.user = user
         self.service = service
 
     def get_data(self):
@@ -16,7 +17,7 @@ class Calendar(BaseProcessor):
         for event in self.get_data()[0:5]:
             print(f"- {event.get('summary', 'No Title')} at {event['start'].get('dateTime', event['start'].get('date'))}")
 
-    def _omit_junk_data(self, data):
+    def _valid_data(self, data):
         pass
 
     def _generate_datapoints(self):

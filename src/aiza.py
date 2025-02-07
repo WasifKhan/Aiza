@@ -21,6 +21,7 @@ class Aiza:
         if config['model'] == 'GPT':
             from models.gpt.gpt import GPT
             self.chatbot = GPT()
+        self.user = config['user']
         self.sources = config['sources']
 
     def generate_data(self):
@@ -29,10 +30,10 @@ class Aiza:
         Requires permissions from user.
         """
         data_loader = DataLoader()
-        data_loader.authenticate_sources(self.sources)
+        data_loader.authenticate_sources(self.user, self.sources)
         data_loader.process_sources()
-        if not data_loader.validate_data():
-            print("Error in generating data")
+        print('Data successfully generated!') if data_loader.validate_data()\
+                else print('Error generating data')
 
     def learn_user(self):
         """

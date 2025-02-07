@@ -2,8 +2,9 @@ from data_loader.sources.base_processor import BaseProcessor
 
 
 class Mail(BaseProcessor):
-    def __init__(self, service):
+    def __init__(self, user, service):
         super().__init__()
+        self.user = user
         self.service = service
 
     def get_data(self):
@@ -19,7 +20,7 @@ class Mail(BaseProcessor):
         for email in self.get_data()[0:5]:
             print(f"- {email['snippet'][:100]}...")
 
-    def _omit_junk_data(self, data):
+    def _valid_data(self, data):
         pass
 
     def _generate_datapoints(self):

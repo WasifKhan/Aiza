@@ -3,9 +3,11 @@ from keys.keys import GOOGLE_MAPS_API_KEY
 from json import load
 from googlemaps import Client
 
+
 class Maps(BaseProcessor):
-    def __init__(self, service):
+    def __init__(self, user, service):
         super().__init__()
+        self.user = user
         self.service = service
 
     def get_data(self):
@@ -27,7 +29,7 @@ class Maps(BaseProcessor):
             name = place["properties"].get("Title", "Unnamed Place")
             print(f"- 📍 {name} | 📌 {address} | 🗺️ Coordinates: {lat}, {lng}")
 
-    def _omit_junk_data(self, data):
+    def _valid_data(self, data):
         pass
 
     def _generate_datapoints(self):

@@ -6,7 +6,7 @@ class Sources(ABC):
         pass
 
     @abstractmethod
-    def authenticate(self):
+    def authenticate(self, user):
         pass
 
     @abstractmethod

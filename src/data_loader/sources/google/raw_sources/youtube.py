@@ -2,8 +2,9 @@ from data_loader.sources.base_processor import BaseProcessor
 
 
 class YouTube(BaseProcessor):
-    def __init__(self, service):
+    def __init__(self, user, service):
         super().__init__()
+        self.user = user
         self.service = service
 
     def get_data(self):
@@ -15,7 +16,7 @@ class YouTube(BaseProcessor):
         for video in self.get_data()[0:5]:
             print(f"- {video['title']} (Published: {video['published']})")
 
-    def _omit_junk_data(self, data):
+    def _valid_data(self, data):
         pass
 
     def _generate_datapoints(self):

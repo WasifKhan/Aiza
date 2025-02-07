@@ -5,7 +5,7 @@ class Meta(Sources):
     def __init__(self):
         super().__init__()
 
-    def authenticate(self):
+    def authenticate(self, user):
         pass
 
     def load_source(self):

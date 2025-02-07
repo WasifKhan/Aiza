@@ -17,7 +17,7 @@ class BaseProcessor(ABC):
         pass
 
     @abstractmethod
-    def _omit_junk_data(self, data):
+    def _valid_data(self, data):
         pass
 
     @abstractmethod

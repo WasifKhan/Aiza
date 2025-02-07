@@ -9,13 +9,13 @@ class DataLoader:
         self.data_sources = dict()
         self.data_path = "./artifacts/training_data.jsonl"
 
-    def authenticate_sources(self, sources):
+    def authenticate_sources(self, user, sources):
         if 'google' in sources:
             self.data_sources['google'] = Google()
         if 'meta' in sources:
             self.data_sources['meta'] = Meta()
         for source in self.data_sources:
-            self.data_sources[source].authenticate()
+            self.data_sources[source].authenticate(user)
 
     def process_sources(self):
         for source in self.data_sources:
@@ -25,7 +25,6 @@ class DataLoader:
     def validate_data(self):
         with open(self.data_path, 'r', encoding='utf-8') as f:
             dataset = [loads(line) for line in f]
-        print("Num examples:", len(dataset))
         format_errors = defaultdict(int)
         for ex in dataset:
             if not isinstance(ex, dict):
