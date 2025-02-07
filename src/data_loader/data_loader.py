@@ -2,6 +2,7 @@ from data_loader.sources.google.source_google import Google
 from data_loader.sources.meta.source_meta import Meta
 from json import loads
 from collections import defaultdict
+import logging
 
 
 class DataLoader:
@@ -16,13 +17,18 @@ class DataLoader:
             self.data_sources['meta'] = Meta()
         for source in self.data_sources:
             self.data_sources[source].authenticate(user)
+        logging.debug('Authentication success')
 
     def process_sources(self):
         for source in self.data_sources:
-            print(f"Processing {source} data")
+            logging.info(f"Processing {source} data")
             self.data_sources[source].process()
+        if self._validate_data():
+            logging.info('Data successfully generated!')
+        else:
+            logging.error('Failed to generate data')
 
-    def validate_data(self):
+    def _validate_data(self):
         with open(self.data_path, 'r', encoding='utf-8') as f:
             dataset = [loads(line) for line in f]
         format_errors = defaultdict(int)
@@ -37,8 +43,7 @@ class DataLoader:
             for message in messages:
                 if "role" not in message or "content" not in message:
                     format_errors["message_missing_key"] += 1
-                if any(k not in ("role", "content", "name",
-                        "function_call", "weight") for k in message):
+                if any(k not in ("role", "content", "name", "function_call", "weight") for k in message):
                     format_errors["message_unrecognized_key"] += 1
                 if message.get("role", None) not in (
                         "system", "user", "assistant", "function"):
@@ -48,7 +53,6 @@ class DataLoader:
                 if (not content and not function_call) or \
                         not isinstance(content, str):
                     format_errors["missing_content"] += 1
-            if not any(message.get("role", None) == "assistant"
-                    for message in messages):
+            if not any(message.get("role", None) == "assistant" for message in messages):
                 format_errors["example_missing_assistant_message"] += 1
         return False if format_errors else True

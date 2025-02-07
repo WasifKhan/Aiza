@@ -6,11 +6,11 @@ from data_loader.sources.google.raw_sources.calendar import Calendar
 from data_loader.sources.google.raw_sources.youtube import YouTube
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
+import logging
 
 
 class Google(Sources):
     def __init__(self):
-        super().__init__()
         self.scopes = [
             "https://www.googleapis.com/auth/drive.readonly",
             "https://www.googleapis.com/auth/gmail.readonly",
@@ -39,8 +39,9 @@ class Google(Sources):
 
     def process(self):
         for key in self.services:
-            print(f'\tProcessing google {key} services')
-            service = self.services[key]
-            files = service.get_data()
-            for file in files:
-                service.process_data(file)
+            if key == 'drive':
+                logging.info(f'Processing google {key} services')
+                service = self.services[key]
+                files = service.get_data()
+                for file in files:
+                    service.process_data(file)

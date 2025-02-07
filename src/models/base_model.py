@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class BaseModel(ABC):
-    def __init__(self, model):
+    def __init__(self):
         pass
 
     @abstractmethod

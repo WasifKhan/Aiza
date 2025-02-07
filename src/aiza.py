@@ -1,4 +1,5 @@
 from data_loader.data_loader import DataLoader
+from misc.logger import initialize_logger
 
 
 class Aiza:
@@ -18,11 +19,12 @@ class Aiza:
         Args:
             config(dict): Dictionary containing configuration for various runs
         """
-        if config['model'] == 'GPT':
-            from models.gpt.gpt import GPT
-            self.chatbot = GPT()
         self.user = config['user']
         self.sources = config['sources']
+        initialize_logger()
+        if config['model'] == 'GPT':
+            from models.gpt.gpt import GPT
+            self.chatbot = GPT(self.user)
 
     def generate_data(self):
         """
@@ -32,8 +34,6 @@ class Aiza:
         data_loader = DataLoader()
         data_loader.authenticate_sources(self.user, self.sources)
         data_loader.process_sources()
-        print('Data successfully generated!') if data_loader.validate_data()\
-                else print('Error generating data')
 
     def learn_user(self):
         """
