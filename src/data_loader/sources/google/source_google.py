@@ -4,18 +4,13 @@ from data_loader.sources.google.raw_sources.mail import Mail
 from data_loader.sources.google.raw_sources.maps import Maps
 from data_loader.sources.google.raw_sources.calendar import Calendar
 from data_loader.sources.google.raw_sources.youtube import YouTube
-from json import load, dump
-from googlemaps import Client
-from requests import get
-from io import BytesIO
-from datetime import datetime
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 
 
 class Google(Sources):
-    def __init__(self, data_generator):
-        super().__init__(data_generator)
+    def __init__(self):
+        super().__init__()
         self.scopes = [
             "https://www.googleapis.com/auth/drive.readonly",
             "https://www.googleapis.com/auth/gmail.readonly",
@@ -45,8 +40,8 @@ class Google(Sources):
 
     def process(self):
         for key in self.services:
-            print(f'Processing {key} services')
+            print(f'\tProcessing google {key} services')
             service = self.services[key]
-            files = self.data_generator.validate_files(service.get_data())
+            files = service.get_data()
             for file in files:
-                service.process_file(file, self.data_generator.generate_data)
+                service.process_data(file)

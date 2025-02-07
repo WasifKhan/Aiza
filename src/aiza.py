@@ -31,6 +31,8 @@ class Aiza:
         data_loader = DataLoader()
         data_loader.authenticate_sources(self.sources)
         data_loader.process_sources()
+        if not data_loader.validate_data():
+            print("Error in generating data")
 
     def learn_user(self):
         """

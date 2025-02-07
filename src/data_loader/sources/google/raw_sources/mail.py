@@ -3,6 +3,7 @@ from data_loader.sources.base_processor import BaseProcessor
 
 class Mail(BaseProcessor):
     def __init__(self, service):
+        super().__init__()
         self.service = service
 
     def get_data(self):
@@ -13,7 +14,13 @@ class Mail(BaseProcessor):
                 messages.append({"id": msg["id"], "snippet": msg_detail["snippet"]})
             return messages
 
-    def process_file(self, file_name, generate_data):
+    def process_data(self, data):
         print("\n📧 **Gmail Inbox:**")
         for email in self.get_data()[0:5]:
             print(f"- {email['snippet'][:100]}...")
+
+    def _omit_junk_data(self, data):
+        pass
+
+    def _generate_datapoints(self):
+        pass
