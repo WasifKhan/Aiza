@@ -6,7 +6,7 @@
 Aiza is an advanced AI personal assistant designed to learn and adapt to your preferences using information from sources you provide access to. By integrating with Google and Meta services, Aiza helps streamline your digital life, offering personalized assistance based on your data.
 
 ## Features
-- **Personalized AI**: Learns from your interactions to provide tailored responses.
+- **Personalized AI**: Learns from your data to provide tailored responses.
 - **Seamless Integration**: Supports data access from Google Drive, Gmail, Meta services, and more.
 - **Modular Architecture**: Easily extend functionality with plugins and APIs.
 - **Secure & Privacy-Focused**: Data security and user control are top priorities.

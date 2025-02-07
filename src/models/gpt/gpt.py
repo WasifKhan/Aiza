@@ -9,7 +9,14 @@ class GPT(BaseModel):
         self.model_version = "gpt-3.5-turbo-0125"
         self.model_location = "./artifacts/model.txt"
         self.training_data_location = "./artifacts/training_data.jsonl"
-        self.conversation_history = []
+        self.conversation_history = [
+                {"role": "system", "content": """You are a personal assistant \
+                        customized for learning personal information about \
+                        the user. For each user query, spend time to think \
+                        about a response that leverages personal information \
+                        you have learned about the user during fine-tuning.\
+                """}
+                ]
 
     def learn_user(self):
         from os import path

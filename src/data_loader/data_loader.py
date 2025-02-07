@@ -5,21 +5,21 @@ from data_loader.sources.bank.source_bank import Bank
 
 
 class DataLoader:
-    def __init__(self, sources):
+    def __init__(self):
         self.data_sources = dict()
         self.data_generator = DataGenerator()
-        self._authenticate_sources(sources)
-        self._process_sources()
 
-    def _authenticate_sources(self, sources):
+    def authenticate_sources(self, sources):
         if 'google' in sources:
-            self.data_sources['google'] = Google()
+            self.data_sources['google'] = Google(self.data_generator)
         if 'meta' in sources:
-            self.data_sources['meta'] = Meta()
+            self.data_sources['meta'] = Meta(self.data_generator)
         if 'bank' in sources:
-            self.data_sources['bank'] = Bank()
+            self.data_sources['bank'] = Bank(self.data_generator)
+        for source in self.data_sources:
+            self.data_sources[source].authenticate()
 
-    def _process_sources(self):
+    def process_sources(self):
         for source in self.data_sources:
             print(f"Processing {source} data")
-            self.data_sources[source].process(self.data_generator)
+            self.data_sources[source].process()

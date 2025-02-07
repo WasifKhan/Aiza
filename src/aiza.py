@@ -3,7 +3,7 @@ from data_loader.data_loader import DataLoader
 
 class Aiza:
     """
-    A chatbot system that interacts with users through 
+    A chatbot system that interacts with users through
     learning their personal information.
 
     Attributes:
@@ -28,7 +28,9 @@ class Aiza:
         Generates the 'training_data.jsonl' file from all provided sources.
         Requires permissions from user.
         """
-        DataLoader(self.sources)
+        data_loader = DataLoader()
+        data_loader.authenticate_sources(self.sources)
+        data_loader.process_sources()
 
     def learn_user(self):
         """
