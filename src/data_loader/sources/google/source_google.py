@@ -6,42 +6,44 @@ from data_loader.sources.google.raw_sources.calendar import Calendar
 from data_loader.sources.google.raw_sources.youtube import YouTube
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
-import logging
+from misc.logger import logger
 
 
 class Google(Sources):
-    def __init__(self):
+    def __init__(self, user):
         self.scopes = [
             "https://www.googleapis.com/auth/drive.readonly",
             "https://www.googleapis.com/auth/gmail.readonly",
             "https://www.googleapis.com/auth/calendar.readonly",
             "https://www.googleapis.com/auth/youtube.readonly"
             ]
+        self.user = user
         self.services = dict()
         self.key = "./keys/credentials.json"
         self.key_cache = "./keys/google_credentials.json"
-        self.maps_location = "./data_loader/sources/google/Maps/\
+        self.model = "./artifacts/model.txt"
+        self.maps = "./data_loader/sources/google/Maps/\
                 My labeled places/Labeled places.json"
 
-    def authenticate(self, user):
+    def authenticate(self):
         flow = InstalledAppFlow.from_client_secrets_file(self.key, self.scopes)
         creds = flow.run_local_server(port=0)
+        user = self.user
         self.services['drive'] = Drive(
-                user, build("drive", "v3", credentials=creds))
+                user, build("drive", "v3", credentials=creds), self.model)
         self.services['mail'] = Mail(
-                user, build("gmail", "v1", credentials=creds))
+                user, build("gmail", "v1", credentials=creds), self.model)
         self.services['maps'] = Maps(
-                user, self.maps_location)
+                user, self.maps, self.model)
         self.services['calendar'] = Calendar(
-                user, build("calendar", "v3", credentials=creds))
+                user, build("calendar", "v3", credentials=creds), self.model)
         self.services['youtube'] = YouTube(
-                user, build("youtube", "v3", credentials=creds))
+                user, build("youtube", "v3", credentials=creds), self.model)
 
     def process(self):
         for key in self.services:
-            if key == 'drive':
-                logging.info(f'Processing google {key} services')
-                service = self.services[key]
-                files = service.get_data()
-                for file in files:
-                    service.process_data(file)
+            logger.log(f'Processing google {key} services')
+            service = self.services[key]
+            files = service.get_data()
+            for file in files:
+                service.process_data(file)

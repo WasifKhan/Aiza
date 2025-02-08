@@ -2,11 +2,11 @@ from abc import ABC, abstractmethod
 
 
 class Sources(ABC):
-    def __init__(self):
+    def __init__(self, user):
         pass
 
     @abstractmethod
-    def authenticate(self, user):
+    def authenticate(self):
         pass
 
     @abstractmethod

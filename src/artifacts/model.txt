@@ -1,1 +1,4 @@
-ft:gpt-3.5-turbo-0125:personal::AyQeVhiu
+gpt-4o-mini-2024-07-18
+ft:gpt-4o-mini-2024-07-18:personal::AyUiN48y
+ft:gpt-4o-mini-2024-07-18:personal::AyVeWhAu
+ft:gpt-4o-mini-2024-07-18:personal::AyXRpDZE

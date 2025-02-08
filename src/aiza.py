@@ -1,5 +1,4 @@
 from data_loader.data_loader import DataLoader
-from misc.logger import initialize_logger
 
 
 class Aiza:
@@ -21,7 +20,6 @@ class Aiza:
         """
         self.user = config['user']
         self.sources = config['sources']
-        initialize_logger()
         if config['model'] == 'GPT':
             from models.gpt.gpt import GPT
             self.chatbot = GPT(self.user)
@@ -31,15 +29,16 @@ class Aiza:
         Generates the 'training_data.jsonl' file from all provided sources.
         Requires permissions from user.
         """
-        data_loader = DataLoader()
-        data_loader.authenticate_sources(self.user, self.sources)
+        data_loader = DataLoader(self.user, self.sources)
+        data_loader.authenticate_sources()
         data_loader.process_sources()
 
     def learn_user(self):
         """
         Learns the user from data stored in the 'training_data.jsonl' file
         """
-        self.chatbot.learn_user()
+        learning_parameters = {'n_epochs': 5, 'batch_size': 4, 'LR_mult': 0.2}
+        self.chatbot.learn_user(learning_parameters)
 
     def run(self):
         """

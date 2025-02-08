@@ -1,54 +1,60 @@
 from models.base_model import BaseModel
+from misc.logger import logger
 from keys.keys import OPENAI_API_KEY
 from openai import OpenAI
 from os import path
 from time import sleep
-import logging
 
 
 class GPT(BaseModel):
     def __init__(self, user):
         self.model = OpenAI(api_key=OPENAI_API_KEY)
-        self.model_version = "gpt-3.5-turbo-0125"
-        self.model_location = "./artifacts/model.txt"
-        self.training_data_location = "./artifacts/training_data.jsonl"
+        self.model_path = "./artifacts/model.txt"
+        self.model_id = open(self.model_path, 'r').readlines()[-1][0:-1]
+        self.data = "./artifacts/training_data.jsonl"
         self.user = user
         self.conversation_history = [
-                {"role": "system", "content": f"""Aiza is a personal \
-                        assistant customized for providing personal \
-                        information about me ({self.user}).\
-                """}
-                ]
+                {"role": "system", "content":
+                    "Aiza is a personal "
+                    "assistant customized for providing personal "
+                    f"information about me ({self.user})."}]
 
-    def learn_user(self):
-        if not path.exists(self.training_data_location):
-            logging.error("Error: Must generate training_data.jsonl file \
-                    before running this command.\n")
+    def learn_user(self, config):
+        if not path.exists(self.data):
+            logger.log("Error: Must generate training_data.jsonl "
+                       "file before running this command.", 'ERROR')
             return
         data_file = self.model.files.create(
-            file=open(self.training_data_location, "rb"), purpose="fine-tune")
+            file=open(self.data, "rb"), purpose="fine-tune")
         job = self.model.fine_tuning.jobs.create(
-            training_file=data_file.id, model=self.model_version)
+            training_file=data_file.id, model=self.model_id,
+            method={
+                "type": "supervised",
+                "supervised": {
+                    "hyperparameters":
+                        {"n_epochs": config['n_epochs'],
+                         "batch_size": config['batch_size'],
+                         "learning_rate_multiplier": config['LR_mult']}, }, },
+            )
         dot = "."
         while not (model := self.model.fine_tuning.jobs.retrieve(
                 job.id).fine_tuned_model):
-            logging.info(f"Learning user information{dot}")
-            dot = "." if len(dot) == 5 else dot + "."
+            print(f"Learning user information{dot}")
+            dot = "." if len(dot) == 20 else dot + "."
             sleep(60)
-        with open(self.model_location, "w", encoding="utf-8") as file:
-            file.write(model)
-        logging.info("User has been successfully learned")
+        with open(self.model_path, "a", encoding="utf-8") as file:
+            file.write(model + '\n')
+        print("User has been successfully learned")
 
     def run(self):
-        self.model_id = open(self.model_location, 'r').readlines()[0]
-        logging.info("Aiza is ready! Type 'exit' to quit.\n")
+        print("Aiza is ready! Type 'exit' to quit.\n")
         while (user_input := input("You: ")) != "exit":
             response = self._chat(user_input)
-            logging.info(f"Assistant: {response}\n")
-        logging.info("Exited conversation")
+            print(f"Assistant: {response}\n")
+        print("Exited conversation")
 
     def _chat(self, user_input):
-        logging.debug(f'prompt: {user_input}')
+        logger.log(f'prompt: {user_input}', 'DEBUG')
         self.conversation_history.append(
                 {"role": "user", "content": user_input})
         response = self.model.chat.completions.create(
@@ -56,5 +62,5 @@ class GPT(BaseModel):
         reply = response.choices[0].message.content
         self.conversation_history.append(
                 {"role": "assistant", "content": reply})
-        logging.debug(f'reply: {reply}')
+        logger.log(f'reply: {reply}', 'DEBUG')
         return reply

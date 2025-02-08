@@ -1,10 +1,9 @@
 from data_loader.sources.base_processor import BaseProcessor
-from datetime import datetime
 
 
 class Calendar(BaseProcessor):
-    def __init__(self, user, service):
-        super().__init__()
+    def __init__(self, user, service, model):
+        super().__init__(model)
         self.user = user
         self.service = service
 

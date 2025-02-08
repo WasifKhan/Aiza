@@ -1,35 +1,36 @@
 from data_loader.sources.google.source_google import Google
 from data_loader.sources.meta.source_meta import Meta
+from misc.logger import logger
 from json import loads
 from collections import defaultdict
-import logging
 
 
 class DataLoader:
-    def __init__(self):
+    def __init__(self, user, sources):
+        self.user = user
         self.data_sources = dict()
-        self.data_path = "./artifacts/training_data.jsonl"
-
-    def authenticate_sources(self, user, sources):
+        self.data = "./artifacts/training_data.jsonl"
         if 'google' in sources:
-            self.data_sources['google'] = Google()
+            self.data_sources['google'] = Google(user)
         if 'meta' in sources:
-            self.data_sources['meta'] = Meta()
+            self.data_sources['meta'] = Meta(user)
+
+    def authenticate_sources(self):
         for source in self.data_sources:
-            self.data_sources[source].authenticate(user)
-        logging.debug('Authentication success')
+            self.data_sources[source].authenticate()
+        logger.log('Authentication success', 'DEBUG')
 
     def process_sources(self):
         for source in self.data_sources:
-            logging.info(f"Processing {source} data")
+            logger.log(f"Processing {source} data")
             self.data_sources[source].process()
         if self._validate_data():
-            logging.info('Data successfully generated!')
+            logger.log('Data successfully generated!')
         else:
-            logging.error('Failed to generate data')
+            logger.log('Failed to generate data', 'ERROR')
 
     def _validate_data(self):
-        with open(self.data_path, 'r', encoding='utf-8') as f:
+        with open(self.data, 'r', encoding='utf-8') as f:
             dataset = [loads(line) for line in f]
         format_errors = defaultdict(int)
         for ex in dataset:
@@ -43,7 +44,8 @@ class DataLoader:
             for message in messages:
                 if "role" not in message or "content" not in message:
                     format_errors["message_missing_key"] += 1
-                if any(k not in ("role", "content", "name", "function_call", "weight") for k in message):
+                if any(k not in ("role", "content", "name", "function_call",
+                                 "weight") for k in message):
                     format_errors["message_unrecognized_key"] += 1
                 if message.get("role", None) not in (
                         "system", "user", "assistant", "function"):
@@ -53,6 +55,7 @@ class DataLoader:
                 if (not content and not function_call) or \
                         not isinstance(content, str):
                     format_errors["missing_content"] += 1
-            if not any(message.get("role", None) == "assistant" for message in messages):
+            if not any(message.get("role", None) == "assistant"
+                                                    for message in messages):
                 format_errors["example_missing_assistant_message"] += 1
         return False if format_errors else True

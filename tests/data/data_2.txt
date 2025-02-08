@@ -1,0 +1,99 @@
+Iterating on hyperparameters
+We allow you to specify the following hyperparameters:
+
+epochs
+learning rate multiplier
+batch size
+We recommend initially training without specifying any of these, allowing us to pick a default for you based on dataset size, then adjusting if you observe the following:
+
+If the model does not follow the training data as much as expected increase the number of epochs by 1 or 2
+This is more common for tasks for which there is a single ideal completion (or a small set of ideal completions which are similar). Some examples include classification, entity extraction, or structured parsing. These are often tasks for which you can compute a final accuracy metric against a reference answer.
+If the model becomes less diverse than expected decrease the number of epochs by 1 or 2
+This is more common for tasks for which there are a wide range of possible good completions
+If the model does not appear to be converging, increase the learning rate multiplier
+You can set the hyperparameters as is shown below:
+
+Setting hyperparameters
+from openai import OpenAI
+client = OpenAI()
+
+client.fine_tuning.jobs.create(
+    training_file="file-abc123",
+    model="gpt-4o-mini-2024-07-18",
+    method={
+        "type": "supervised",
+        "supervised": {
+            "hyperparameters": {"n_epochs": 2},
+        },
+    },
+)
+Vision fine-tuning
+Fine-tuning is also possible with images in your JSONL files. Just as you can send one or many image inputs to chat completions, you can include those same message types within your training data. Images can be provided either as HTTP URLs or data URLs containing base64 encoded images.
+
+Here's an example of an image message on a line of your JSONL file. Below, the JSON object is expanded for readibility, but typically this JSON would appear on a single line in your data file:
+
+{
+  "messages": [
+    { "role": "system", "content": "You are an assistant that identifies uncommon cheeses." },
+    { "role": "user", "content": "What is this cheese?" },
+    { "role": "user", "content": [
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Danbo_Cheese.jpg"
+          }
+        }
+      ]
+    },
+    { "role": "assistant", "content": "Danbo" }
+  ]
+}
+Image dataset requirements
+Size
+Your training file can contain a maximum of 50,000 examples that contain images (not including text examples).
+Each example can have at most 10 images.
+Each image can be at most 10 MB.
+Format
+Images must be JPEG, PNG, or WEBP format.
+Your images must be in the RGB or RGBA image mode.
+You cannot include images as output from messages with the assistant role.
+Content moderation policy
+We scan your images before training to ensure that they comply with our usage policy. This may introduce latency in file validation before fine-tuning begins.
+
+Images containing the following will be excluded from your dataset and not used for training:
+
+People
+Faces
+Children
+CAPTCHAs
+Help
+What to do if your images get skipped
+Your images can get skipped for the following reasons:
+
+contains CAPTCHAs, contains people, contains faces, contains children
+Remove the image. For now, we cannot fine-tune models with images containing these entities.
+inaccessible URL
+Ensure that the image URL is publicly accessible.
+image too large
+Please ensure that your images fall within our dataset size limits.
+invalid image format
+Please ensure that your images fall within our dataset format.
+Reducing training cost
+If you set the detail parameter for an image to low, the image is resized to 512 by 512 pixels and is only represented by 85 tokens regardless of its size. This will reduce the cost of training. See here for more information.
+
+{
+    "type": "image_url",
+    "image_url": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Danbo_Cheese.jpg",
+        "detail": "low"
+    }
+}
+Other considerations for vision fine-tuning
+To control the fidelity of image understanding, set the detail parameter of image_url to low, high, or auto for each image. This will also affect the number of tokens per image that the model sees during training time, and will affect the cost of training. See here for more information.
+Preference fine-tuning
+Direct Preference Optimization (DPO) fine-tuning allows you to fine-tune models based on prompts and pairs of responses. This approach enables the model to learn from human preferences, optimizing for outputs that are more likely to be favored. Note that we currently support text-only DPO fine-tuning.
+
+Preparing your dataset for DPO
+Each example in your dataset should contain:
+
+A prompt, like a user message.
