@@ -13,7 +13,8 @@ from os import remove
 def test_generate_data():
     data_path = './tests/data/data.jsonl'
     model_path = './tests/data/model.txt'
-    data = [f'./tests/data/data_{it}.txt' for it in range(3)]
+    data = [{'mimeType': '', 'id': '', 'name': f'./tests/data/data_{it}.txt'}
+            for it in range(3)]
     model = 'gpt-4o-mini-2024-07-18\n'
 
     def gpt_init(self, user):
@@ -67,7 +68,7 @@ def test_generate_data():
                         __init__=drive_init,
                         get_data=lambda self: data,
                         _get_contents=lambda self, data:
-                            ''.join(open(data, 'r').readlines()),
+                            ''.join(open(data['name'], 'r').readlines()),
                         create=True):
 
         config = {'user': 'Wasif', 'model': 'GPT', 'sources': ['google']}

@@ -35,7 +35,7 @@ class Drive(BaseProcessor):
                 message = self._generate_input(self.user, question, answer)
                 output.write(message)
         if datapoints:
-            logger.log(f"Processed file: {data}")
+            logger.log(f"Processed file: {data['name']}")
 
     def _valid_data(self, data):
         system_prompt = "You are a personal document classifier. Your goal " \
