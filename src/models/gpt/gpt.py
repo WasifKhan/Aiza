@@ -44,7 +44,7 @@ class GPT(BaseModel):
             sleep(60)
         with open(self.model_path, "a", encoding="utf-8") as file:
             file.write(model + '\n')
-        print("User has been successfully learned")
+            print("User has been successfully learned")
 
     def run(self):
         print("Aiza is ready! Type 'exit' to quit.\n")

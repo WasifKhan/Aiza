@@ -1,18 +1,18 @@
-from data_loader.sources.base_processor import BaseProcessor
+from data_loader.sources.templates.base_processor import BaseProcessor
 from misc.logger import logger
 from io import BytesIO
 from re import split
 
 
 class Drive(BaseProcessor):
-    def __init__(self, user, service, model):
+    def __init__(self, user, service, model, data):
         super().__init__(model)
         self.user = user
         self.service = service
-        self.data = './artifacts/training_data.jsonl'
+        self.data = data
 
     def get_data(self):
-        query = "'root' in parents or mimeType "\
+        query = "'root' in parents or mimeType " \
                 "!= 'application/vnd.google-apps.folder'"
         results = self.service.files().list(
                     q=query,
@@ -24,7 +24,10 @@ class Drive(BaseProcessor):
     def process_data(self, data):
         content = self._get_contents(data)
         datapoints = []
+        facts = []
         for text in [content[i:i+5000] for i in range(0, len(content), 5000)]:
+            if (dp := self._generate_facts(text)):
+                facts.append(dp)
             if (dp := self._generate_datapoints(text)):
                 datapoints.append(dp)
         datapoints = ''.join(datapoints)
@@ -61,7 +64,10 @@ class Drive(BaseProcessor):
         reply = response.choices[0].message.content.split()[0]
         return True if reply == "True" else False
 
-    def _generate_datapoints(self, data_source):
+    def _generate_facts(self, data):
+        pass
+
+    def _generate_datapoints(self, data):
         system_prompt = "You are a teacher. The user will provide long " \
             "unstructured text documents. Generate questions that could be " \
             "asked about the text the user provided alongside the " \
@@ -82,7 +88,7 @@ class Drive(BaseProcessor):
             "working out'"
         message = [
                 {"role": "system", "content": system_prompt},
-                {"role": "user", "content": data_source}
+                {"role": "user", "content": data}
                 ]
         response = self.model.chat.completions.create(
                 model=self.model_version, messages=message)

@@ -1,7 +1,7 @@
 from aiza import Aiza
 from models.gpt.gpt import GPT
 from data_loader.data_loader import DataLoader
-from data_loader.sources.base_processor import BaseProcessor
+from data_loader.sources.templates.base_processor import BaseProcessor
 from data_loader.sources.google.source_google import Google
 from data_loader.sources.google.raw_sources.drive import Drive
 from keys.keys import OPENAI_API_KEY
@@ -13,6 +13,7 @@ from os import remove
 def test_generate_data():
     data_path = './tests/data/data.jsonl'
     model_path = './tests/data/model.txt'
+    facts_path = './tests/data/facts.txt'
     data = [{'mimeType': '', 'id': '', 'name': f'./tests/data/data_{it}.txt'}
             for it in range(3)]
     model = 'gpt-4o-mini-2024-07-18\n'
@@ -38,14 +39,16 @@ def test_generate_data():
             "https://www.googleapis.com/auth/youtube.readonly"
             ]
         self.user = user
-        self.services = {'google': Drive(user, None, model_path)}
+        self.services = {'google': Drive(user, None, model_path, facts_path)}
         self.model = model_path
+        self.data = data_path
 
-    def drive_init(self, user, service, model):
+    def drive_init(self, user, service, model, facts):
         BaseProcessor.__init__(self, model)
         self.user = user
         self.service = service
         self.data = data_path
+        self.facts = facts
 
     def data_loader_init(self, user, sources):
         self.user = user

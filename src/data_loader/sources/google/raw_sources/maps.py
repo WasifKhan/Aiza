@@ -1,4 +1,4 @@
-from data_loader.sources.base_processor import BaseProcessor
+from data_loader.sources.templates.base_processor import BaseProcessor
 from keys.keys import GOOGLE_MAPS_API_KEY
 from json import load
 from googlemaps import Client
@@ -9,6 +9,9 @@ class Maps(BaseProcessor):
         super().__init__(model)
         self.user = user
         self.service = service
+        self.maps = "./data_loader/sources/google/Maps/\
+                My labeled places/Labeled places.json"
+
 
     def get_data(self):
         # Load the Google Takeout JSON file

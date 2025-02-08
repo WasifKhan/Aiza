@@ -1,4 +1,4 @@
-from data_loader.sources.base_processor import BaseProcessor
+from data_loader.sources.templates.base_processor import BaseProcessor
 
 
 class Calendar(BaseProcessor):

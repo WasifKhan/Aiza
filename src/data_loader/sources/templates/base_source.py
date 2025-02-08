@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class Sources(ABC):
+class BaseSource(ABC):
     def __init__(self, user):
         pass
 

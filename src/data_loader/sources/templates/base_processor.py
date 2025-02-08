@@ -22,5 +22,9 @@ class BaseProcessor(ABC):
         pass
 
     @abstractmethod
-    def _generate_datapoints(self):
+    def _generate_facts(self, data):
+        pass
+
+    @abstractmethod
+    def _generate_datapoints(self, data):
         pass

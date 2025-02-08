@@ -1,11 +1,13 @@
-from data_loader.sources.base_processor import BaseProcessor
+from data_loader.sources.templates.base_processor import BaseProcessor
+from misc.logger import logger
 
 
 class Mail(BaseProcessor):
-    def __init__(self, user, service, model):
+    def __init__(self, user, service, model, data):
         super().__init__(model)
         self.user = user
         self.service = service
+        self.data = data
 
     def get_data(self):
             results = self.service.users().messages().list(userId="me", labelIds=["INBOX"]).execute()

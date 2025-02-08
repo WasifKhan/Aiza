@@ -1,7 +1,7 @@
-from data_loader.sources.sources import Sources
+from data_loader.sources.templates.base_source import BaseSource
 
 
-class Meta(Sources):
+class Meta(BaseSource):
     def __init__(self):
         super().__init__()
 

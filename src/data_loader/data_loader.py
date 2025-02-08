@@ -1,19 +1,19 @@
 from data_loader.sources.google.source_google import Google
 from data_loader.sources.meta.source_meta import Meta
 from misc.logger import logger
-from json import loads
-from collections import defaultdict
 
 
 class DataLoader:
     def __init__(self, user, sources):
         self.user = user
         self.data_sources = dict()
-        self.data = "./artifacts/training_data.jsonl"
+        model = './artifacts/model.txt'
+        data = './artifacts/training_data.jsonl'
+        facts = './artifacts/facts.txt'
         if 'google' in sources:
-            self.data_sources['google'] = Google(user)
+            self.data_sources['google'] = Google(user, model, data, facts)
         if 'meta' in sources:
-            self.data_sources['meta'] = Meta(user)
+            self.data_sources['meta'] = Meta(user, model, data, facts)
 
     def authenticate_sources(self):
         for source in self.data_sources:
@@ -24,12 +24,12 @@ class DataLoader:
         for source in self.data_sources:
             logger.log(f"Processing {source} data")
             self.data_sources[source].process()
-        if self._validate_data():
-            logger.log('Data successfully generated!')
-        else:
-            logger.log('Failed to generate data', 'ERROR')
+        logger.log('Data successfully generated!') if self._validate_data() \
+            else logger.log('Failed to generate data', 'ERROR')
 
     def _validate_data(self):
+        from json import loads
+        from collections import defaultdict
         with open(self.data, 'r', encoding='utf-8') as f:
             dataset = [loads(line) for line in f]
         format_errors = defaultdict(int)
