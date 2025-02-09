@@ -5,11 +5,12 @@ from re import split
 
 
 class Drive(BaseProcessor):
-    def __init__(self, user, service, model, data):
+    def __init__(self, user, service, model, data, facts):
         super().__init__(model)
         self.user = user
         self.service = service
         self.data = data
+        self.facts = facts
 
     def get_data(self):
         query = "'root' in parents or mimeType " \
@@ -25,7 +26,7 @@ class Drive(BaseProcessor):
         content = self._get_contents(data)
         datapoints = []
         facts = []
-        for text in [content[i:i+5000] for i in range(0, len(content), 5000)]:
+        for text in [content[i:i+10000] for i in range(0, len(content), 10000)]:
             if (dp := self._generate_facts(text)):
                 facts.append(dp)
             if (dp := self._generate_datapoints(text)):
@@ -37,6 +38,8 @@ class Drive(BaseProcessor):
                 question, answer = self._format(result[index-1], result[index])
                 message = self._generate_input(self.user, question, answer)
                 output.write(message)
+        with open(self.facts, 'a') as output:
+            output.writelines(facts)
         if datapoints:
             logger.log(f"Processed file: {data['name']}")
 
@@ -49,7 +52,7 @@ class Drive(BaseProcessor):
                 "information. The input will contain contents of a file. " \
                 "Provide your response with just one word 'True' or 'False' " \
                 "where True means the file contains personal information " \
-                "and False otherwise. " \
+                "and False otherwise. If you are unsure, assume False." \
                 "For example: " \
                 "input: 'Today was a tough day and I was depressed' and " \
                 "output: 'True'. Another example: " \
@@ -72,7 +75,10 @@ class Drive(BaseProcessor):
             "unstructured text documents. Generate questions that could be " \
             "asked about the text the user provided alongside the " \
             "associated correct answer. Only include questions that test " \
-            f"for personal information about {self.user}. If it is unclear " \
+            f"for personal information about {self.user}. Try to include " \
+            f"dates, and names of other family and friends in {self.user}'s " \
+            "life as part of the questions and answers where possible. " \
+            "If it is unclear " \
             f"who the text is about, assume it is about {self.user}. The " \
             "questions should be easy and phrased in first-tense such as " \
             "'How old am I?' not 'How old is Wasif'. The answers should be " \

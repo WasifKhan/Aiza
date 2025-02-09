@@ -7,13 +7,13 @@ class DataLoader:
     def __init__(self, user, sources):
         self.user = user
         self.data_sources = dict()
+        self.data = './artifacts/training_data.jsonl'
         model = './artifacts/model.txt'
-        data = './artifacts/training_data.jsonl'
         facts = './artifacts/facts.txt'
         if 'google' in sources:
-            self.data_sources['google'] = Google(user, model, data, facts)
+            self.data_sources['google'] = Google(user, model, self.data, facts)
         if 'meta' in sources:
-            self.data_sources['meta'] = Meta(user, model, data, facts)
+            self.data_sources['meta'] = Meta(user, model, self.data, facts)
 
     def authenticate_sources(self):
         for source in self.data_sources:

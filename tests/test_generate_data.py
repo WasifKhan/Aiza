@@ -79,4 +79,4 @@ def test_generate_data():
         aiza.generate_data()
 
         assert DataLoader(None, None)._validate_data()
-    [remove(path) for path in [data_path, model_path]]
+    [remove(path) for path in [data_path, model_path, facts_path]]

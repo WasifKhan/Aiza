@@ -37,14 +37,21 @@ class GPT(BaseModel):
                          "learning_rate_multiplier": config['LR_mult']}, }, },
             )
         dot = "."
-        while not (model := self.model.fine_tuning.jobs.retrieve(
-                job.id).fine_tuned_model):
+        while (status := self.model.fine_tuning.jobs.retrieve(job.id).status) \
+                not in {'succeeded', 'cancelled', 'failed'}:
             print(f"Learning user information{dot}")
             dot = "." if len(dot) == 20 else dot + "."
             sleep(60)
-        with open(self.model_path, "a", encoding="utf-8") as file:
-            file.write(model + '\n')
-            print("User has been successfully learned")
+        if status == 'succeeded':
+            model = self.model.fine_tuning.jobs.retrieve(
+                job.id).fine_tuned_model
+            with open(self.model_path, "a", encoding="utf-8") as file:
+                file.write(model + '\n')
+                print("User has been successfully learned!")
+        elif status == 'cancelled':
+            logger.log('Fine-tuning job cancelled.', 'WARNING')
+        else:
+            logger.log('Fine-tuning job failed.', 'ERROR')
 
     def run(self):
         print("Aiza is ready! Type 'exit' to quit.\n")
