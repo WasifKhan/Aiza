@@ -12,12 +12,15 @@ class GPT(BaseModel):
         self.model_path = "./artifacts/model.txt"
         self.model_id = open(self.model_path, 'r').readlines()[-1][0:-1]
         self.data = "./artifacts/training_data.jsonl"
+        self.facts = "./artifacts/facts.txt"
         self.user = user
         self.conversation_history = [
                 {"role": "system", "content":
                     "Aiza is a personal "
                     "assistant customized for providing personal "
-                    f"information about me ({self.user})."}]
+                    f"information about me ({self.user}). Here are some "
+                    "facts to help Aiza get started.\nFacts:\n"
+                    f"{''.join(open(self.facts).readlines())}"}]
 
     def learn_user(self, config):
         if not path.exists(self.data):

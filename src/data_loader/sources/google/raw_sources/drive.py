@@ -26,7 +26,7 @@ class Drive(BaseProcessor):
         content = self._get_contents(data)
         datapoints = []
         facts = []
-        for text in [content[i:i+10000] for i in range(0, len(content), 10000)]:
+        for text in [content[i:i+5000] for i in range(0, len(content), 5000)]:
             if (dp := self._generate_facts(text)):
                 facts.append(dp)
             if (dp := self._generate_datapoints(text)):
@@ -38,29 +38,32 @@ class Drive(BaseProcessor):
                 question, answer = self._format(result[index-1], result[index])
                 message = self._generate_input(self.user, question, answer)
                 output.write(message)
-        with open(self.facts, 'a') as output:
-            output.writelines(facts)
+        if facts:
+            with open(self.facts, 'a') as output:
+                output.writelines(facts)
         if datapoints:
             logger.log(f"Processed file: {data['name']}")
 
-    def _valid_data(self, data):
-        system_prompt = "You are a personal document classifier. Your goal " \
-                "is to determine if the content of a file contains personal " \
+    def _valid_data(self, file_name, data):
+        system_prompt = "You are a personal document classifier. You will " \
+                "be provided the name of the file followed by some contents " \
+                "of the file and you need to determine " \
+                "if the contents of a file contains personal " \
                 f"information about {self.user}. This can be anything from " \
-                "a diary, education information, work information, exercise " \
-                "progress, among other things one would consider personal " \
-                "information. The input will contain contents of a file. " \
+                "a diary, resume, transcript, exercise info, nutritional " \
+                "information, among other things one would consider personal " \
+                "information. " \
                 "Provide your response with just one word 'True' or 'False' " \
                 "where True means the file contains personal information " \
                 "and False otherwise. If you are unsure, assume False." \
                 "For example: " \
-                "input: 'Today was a tough day and I was depressed' and " \
-                "output: 'True'. Another example: " \
-                "input: 'letter-01 research-12-paper 543 fast-092.xlas' and " \
-                "output: 'False'"
+                "input: 'Resume:\nWasif Khan Resume 5 years experience' and " \
+                "output: True. Another example: " \
+                "input: 'research-12-paper:\nThis paper discusses the side " \
+                "effects of model distillation.' and output: False"
         message = [
                 {"role": "system", "content": system_prompt},
-                {"role": "user", "content": data}
+                {"role": "user", "content": f'{file_name}:\n{data}'}
                 ]
         response = self.model.chat.completions.create(
                 model=self.model_version, messages=message)
@@ -68,7 +71,23 @@ class Drive(BaseProcessor):
         return True if reply == "True" else False
 
     def _generate_facts(self, data):
-        pass
+        system_prompt ="You are a fact generator. " \
+            "The user will provide long unstructured text " \
+            f"documents. Assume the text is about {self.user}. " \
+            "Generate facts about {self.user}, one fact per " \
+            "line. Focus on providing facts that includes names of friends, " \
+            "family, work companies, job titles, dynamics of relationships, " \
+            "locations and times of events. Provide facts in third person " \
+            "as opposed to first person. Ie. 'He is 32 years old', not " \
+            f"'{self.user} is 32 years old.'. If the text contains no " \
+            f"facts about {self.user}, output 'False'."
+        message = [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": data}
+                ]
+        response = self.model.chat.completions.create(
+                model=self.model_version, messages=message)
+        return response.choices[0].message.content.replace('False', '')
 
     def _generate_datapoints(self, data):
         system_prompt = "You are a teacher. The user will provide long " \
@@ -78,8 +97,7 @@ class Drive(BaseProcessor):
             f"for personal information about {self.user}. Try to include " \
             f"dates, and names of other family and friends in {self.user}'s " \
             "life as part of the questions and answers where possible. " \
-            "If it is unclear " \
-            f"who the text is about, assume it is about {self.user}. The " \
+            "The " \
             "questions should be easy and phrased in first-tense such as " \
             "'How old am I?' not 'How old is Wasif'. The answers should be " \
             "concise. Spend time to think about the answer. " \
@@ -121,10 +139,11 @@ class Drive(BaseProcessor):
             elif mime_type.startswith("text/"):
                 request = self.service.files().get_media(fileId=file_id)
                 content = request.execute().decode("utf-8")
-            if not content or not self._valid_data(content[0:300]):
+            if not content or not self._valid_data(file_name, content[0:500]):
                 raise Exception
         except Exception:
             logger.log(f'Cannot decode file: {file_name}', 'DEBUG')
+            return []
         return content
 
     def _generate_input(self, user, question, answer):
@@ -143,5 +162,6 @@ class Drive(BaseProcessor):
             question[0:-1] if question[-1] == ' ' else question
         answer = answer.replace('\n', '').replace('"', "'")
         answer = answer[0:-2] if len(answer) > 1 and answer[-2] == ' ' \
-            else answer[0:-1] if answer[-1] == ' ' else answer
+            else answer[0:-1] if len(answer) >= 1 and answer[-1] == ' ' \
+            else answer
         return question, answer
