@@ -11,6 +11,7 @@ class Drive(BaseProcessor):
         self.service = service
         self.data = data
         self.facts = facts
+        self.files_processed = list()
 
     def get_data(self):
         query = "'root' in parents or mimeType " \
@@ -38,21 +39,47 @@ class Drive(BaseProcessor):
                 question, answer = self._format(result[index-1], result[index])
                 message = self._generate_input(self.user, question, answer)
                 output.write(message)
-        if facts:
-            with open(self.facts, 'a') as output:
+        with open(self.facts, 'a') as output:
+            if facts:
                 output.writelines(facts)
         if datapoints:
             logger.log(f"Processed file: {data['name']}")
+            self.files_processed.append(data['name'])
 
     def _valid_data(self, file_name, data):
+        system_prompt = "You are to determine if a given file name is similar " \
+                "to any file name in a list of files. The user input will " \
+                "contain a file name followed by a list of file names in " \
+                "enclosed in brackets separated by commas. Output True if " \
+                "the file name is similar to a file name in the list and " \
+                "False otherwise. " \
+                "For example: " \
+                "input: 'Resume (cover letter, timeline, paper)' and " \
+                "output: False. Another example: " \
+                "input: 'Cover Letter (resume, edu-cover letter, research)' " \
+                "and " \
+                "output: True. Another example: " \
+                "input: 'Timeline (timeline-long, resume, cover letter)' and " \
+                "output: True."
+        message = [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": 
+                    f'{file_name}: ({", ".join(self.files_processed)})'}
+                ]
+        response = self.model.chat.completions.create(
+                model=self.model_version, messages=message)
+        reply = response.choices[0].message.content.split()[0]
+        if reply == "True":
+            return False
         system_prompt = "You are a personal document classifier. You will " \
                 "be provided the name of the file followed by some contents " \
                 "of the file and you need to determine " \
-                "if the contents of a file contains personal " \
-                f"information about {self.user}. This can be anything from " \
+                "if the contents of a file contains valuable information or " \
+                "if it is code/AI generated/junk. This can be anything from " \
                 "a diary, resume, transcript, exercise info, nutritional " \
-                "information, among other things one would consider personal " \
-                "information. " \
+                "information, among other things one would consider valuable " \
+                "information. Documents containing dates/times are " \
+                "considered valuable. " \
                 "Provide your response with just one word 'True' or 'False' " \
                 "where True means the file contains personal information " \
                 "and False otherwise. If you are unsure, assume False." \
@@ -60,7 +87,11 @@ class Drive(BaseProcessor):
                 "input: 'Resume:\nWasif Khan Resume 5 years experience' and " \
                 "output: True. Another example: " \
                 "input: 'research-12-paper:\nThis paper discusses the side " \
-                "effects of model distillation.' and output: False"
+                "effects of model distillation.' and " \
+                "output: False. Another example: " \
+                "input: 'Timeline:\n1992-2001 School\n2000 Lost " \
+                "virginity. 2003-2007 Worked.' and " \
+                "output: True."
         message = [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": f'{file_name}:\n{data}'}

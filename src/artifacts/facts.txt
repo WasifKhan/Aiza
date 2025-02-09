@@ -9,94 +9,301 @@ He occationally teaches computer science courses at the University of Waterloo
 He struggles with addiction
 He struggles with smoking weed/marijuana/cannibas
 He struggles with alcohol and tobacco
-He has a sex addiction
 He is introspective
-He is a Machine Learning Engineer.  
-He resides in Toronto, ON.  
-He works as a Staff Generative AI Engineer at DigitalOcean since March 2024.  
-He worked as a Staff Machine Learning Engineer at Aviva Insurance in Toronto, ON, from July 2020 to December 2023.  
-He worked as a Senior Machine Learning Engineer at Bloomberg L.P. in New York, NY, from August 2018 to April 2020.  
-He worked as a Machine Learning Engineer at BlackBerry in Waterloo, ON, from September 2015 to June 2018.  
-He was a Professional Gamer in StarCraft from April 2009 to December 2012.  
-He achieved and maintained the #1 rank in Canada and top 8 globally as a professional gamer.  
-He represented Canada at the 2012 EOlympic Games (WCG 2012) and was selected as the flag bearer.  
-He has a Ph.D. in Computer Science with a focus on Artificial Intelligence from the University of Waterloo.  
-He has a Masters of Mathematics in Computer Science with a focus on Affective Computing from the University of Waterloo.  
-He has a Bachelors of Computer Science from the University of Waterloo.- He is a Machine Learning Engineer.
-He is currently employed as a Staff Generative AI Engineer at DigitalOcean since March 2024.
-He worked as a Staff Machine Learning Engineer at Aviva Insurance in Toronto, ON, from July 2020 to December 2023.
-He was a Senior Machine Learning Engineer at Bloomberg L.P. in New York, NY, from August 2018 to April 2020.
-He worked as a Machine Learning Engineer at BlackBerry in Waterloo, ON, from September 2015 to June 2018.
-He was a Professional Gamer for StarCraft, working remotely from April 2009 to December 2012.
-He achieved and maintained the #1 rank in Canada and top 8 globally in StarCraft.
+He is a Staff Generative AI Engineer at DigitalOcean since March 2024.
+He worked as a Staff Machine Learning Engineer at Aviva Insurance in Toronto, ON from July 2020 to December 2023.
+He was a Senior Machine Learning Engineer at Bloomberg L.P. in New York, NY from August 2018 to April 2020.
+He worked as a Machine Learning Engineer at BlackBerry in Waterloo, ON from September 2015 to June 2018.
+He was a Professional Gamer in StarCraft from April 2009 to December 2012.
+He achieved the #1 rank in Canada and top 8 globally in StarCraft.
 He represented Canada at the 2012 EOlympic Games (WCG 2012) as the flag bearer.
-He is based in Toronto, ON.
-He has a Ph.D. in Computer Science specializing in Artificial Intelligence (Generative AI) from the University of Waterloo.
-He holds a Master's in Mathematics in Computer Science (Affective Computing) from the University of Waterloo.
-He has a Bachelor's degree in Computer Science from the University of Waterloo.He has ten years of hands-on experience in software engineering and ML model development.  
-He pursued a part-time Ph.D. in Artificial Intelligence.  
-His journey began at BlackBerry, where he worked for 3 years.  
-He worked at Bloomberg, specializing in natural language processing and deep learning models.  
-He led an MLOps initiative at Bloomberg.  
-He played a key role at Aviva Insurance in developing advanced deep learning models for insurance premiums.  
-He is currently working at DigitalOcean, immersed in LLM development.  
-He taught computer science courses at UWaterloo for 6 years.  
-He represented Canada as a professional StarCraft gamer.  
-He maintains an active lifestyle and practices meditation.  He worked full-time at BlackBerry as of November 6th, 2015.  
-He submitted an application for a master's degree at the University of Waterloo for AI.  
-He considered Wilfrid Laurier University (WLU) as an alternative for his AI master’s degree.  
-He wanted to pursue a master's in AI to eventually work in programming AI and lecturing.  
-He had a complex relationship with a person named Mia, whom he thought about often.  
-Mia told him she couldn’t consider them friends anymore as of December 10th, 2015.  
-He learned a lesson about clarifying expectations in relationships from his experience with Mia.  
-He had friends or roommates named Brad, Tim, and Anton, but was unsure about his living situation with them.  
-He started his master's degree as of May 20th, 2016, which helped improve his emotional state.  
-He occasionally communicated with someone named Shraddha, although he sensed a lack of interest from her side.He had an interview for a "Software Engineering Instructor" role at Bloomberg in March 2018.  
-He informed his friends Alex and Levente that his time at BlackBerry was ending.  
-His research paper on addiction was accepted for CAI in February 2018.  
-He was considering moving to NYC in April 2018 for a job at Bloomberg.  
-Amy called to inform him that he got the job at Bloomberg.  
-He signed the offer to work at Bloomberg as a Software Engineer Instructor with a salary of approximately 190k and a 30k sign-on bonus.  
-He mentioned a friend named Alyssa.  
-He expressed happiness about receiving positive ratings on RateMyProf, indicating his success as a teacher.He lost significant money playing poker, including 2.5k on PLO and another 1.5k on a greedy play.   
-He has a new teaching job at Bloomberg.   
-He finished segment 1 of managing his first class at Bloomberg.   
-He is hoping to improve his poker playing by setting up a proper schedule.   
-He has been getting fit by working out and going to yoga.   
-He met a girl named Ashley Guo and has hopes of developing a relationship with her.   
-He took a vacation to Canada before November 27, 2018.   
-He is reading 'The Power of Habit.'   
-He returned to work and had a first day back without his friend Gabe joining him at the gym.   
-He believes his work performance is underperforming but is making it a priority to improve.   
-He was given a final notice at work in February about his performance.   
-He is trying to gain control over his weed consumption and plans to stay sober for an entire weekend.He moved home in March 2020 due to COVID, which exposed his habits to his parents.  
-He is part of a poker crew in Calgary.  
-Naomi, his girlfriend since March 2022, has been influential in his life.  
-He got a new job at UW around the same time he started dating Naomi.  
-Labeeb, a friend or acquaintance, got married a month prior to June 15, 2022, which influenced him significantly.  
-He has spent a considerable amount of time at Naomi’s house to avoid being at home.  
-As of February 6, 2023, he has been sober for 4 days.  
-Naomi met Kinza and his mother's side of the family in February 2023.  
-He believes Naomi could be a long-term partner and values her for helping him get sober.  
-He has been a seasonal lecturer at UW for over a year as of February 2023 but was not offered a full-time position.  
-He is considering starting a PhD, which he finds interesting.  
-By March 2, 2024, he holds a job at DigitalOcean and continues to have a relationship with Naomi.  
-Dave invited him to teach in the summer of 2024 at UW after declining him for two terms.He has a deep passion for software development, particularly in the field of machine learning.  
+He has a Ph.D. in Computer Science with a focus on Artificial Intelligence (Generative AI) from the University of Waterloo.
+He has a Masters of Mathematics in Computer Science with a focus on Affective Computing from the University of Waterloo.
+He holds a Bachelors of Computer Science from the University of Waterloo.- He was working full time at BlackBerry as of November 6th, 2015.
+He applied for a master's degree at the University of Waterloo for AI in 2015.
+He considered Wilfrid Laurier University (WLU) as an alternative for his master's degree in AI.
+He expressed feelings of uncertainty about his relationship with a person named Mia.
+He had a dynamic and ultimately ended relationship with Mia, who decided they couldn't be friends anymore as of December 10th, 2015.
+He received acceptance into his master's program by December 3rd, 2015.
+He has considered Shraddha in a romantic or intimate context as of March 2nd, 2016.
+He had thoughts about his living situation with Brad, Tim, and Anton, considering them as influences in May 2016.
+He started his master's degree program by May 20th, 2016.
+He communicated with Shraddha about once a month but was unsure of her interest.- He is considering living alone or with Jayme.
+He went on vacation to Mexico at the end of April 2016.
+He is trying to get over a girl named Mia.
+He has a friend named Anton who supplies him with kief.
+He is studying AI and works as a software developer.
+He plans to graduate by August 2018 and considers working in California for a few years.
+He has an idea to start an AI tutoring company.
+He recently spoke on the phone with someone named Shraddha.
+He saw Mia at the 4th annual Elgin street party.
+He received a mark of 68 in neuroanatomy, which was lower than required.
+His brother Labeeb gave their parents watches for their anniversary.
+His father seems happier now..He submitted an addiction paper, which was accepted for CAI on February 14th, 2018.  
+He had an interview with Bloomberg for a "Software Engineering Instructor" role, and the final interview was on March 26th, 2018 in NYC.  
+He was planning to leave BlackBerry and had informed his colleagues Alex and Levente about this transition.  
+He received confirmation of passing the Bloomberg technical interview on March 27th, 2018, with one final cultural fit interview pending.  
+He was overjoyed at the prospect of teaching at Bloomberg while earning over 250k annually.  
+He received excellent ratings from his students, with 18 out of 20 giving him a perfect score, reaffirming his teaching capabilities.  
+He celebrated a significant personal event with Alyssa.  
+On April 4th, 2018, he was offered the job at Bloomberg, informed by a call from Amy.  
+He accepted the job offer from Bloomberg, officially becoming a Software Engineering Instructor with a pay of approximately 190k, plus a 30k sign-on bonus.  
+He planned to move to NYC for his new role at Bloomberg.  - He had knee surgery on August 9th, 2018.
+His parents drove from Mississauga to help him set up his new apartment.
+He moved into his new apartment around August 10th, 2018.
+He had a meeting with a person named Clario.
+Clario is possibly associated with his workplace.
+He bought $1,500 worth of furniture from IKEA.
+He purchased a $3,100 bed.
+He has been going through a rough time emotionally.
+He was on crutches after his knee surgery.
+He has access to weed and has been smoking it regularly.
+He plays PPPoker and experienced a significant financial upswing and downswing within two weeks in October 2018.He struggled with controlling his weed consumption, especially around weekends.  
+He was doing well at work in May 2019, which helped him feel better.  
+He was sober on Dec 1, 2019, after smoking his last bowl at 12:00.  
+He moved back home due to COVID-19 in March 2020, exposing his parents to his habits.  
+He found relief while being with his poker crew in Calgary by Nov 2020.  
+As of June 2022, he has a new girlfriend named Naomi since March.  
+He started a new job at UW around June 2022.  
+His friend Labeeb got married in May 2022, which significantly influenced his life.  
+His teaching initiative at UW has been going well, but he has financial and health concerns.  
+He was officially 4 days sober from weed as of Feb 6, 2023.  
+As of Feb 6, 2023, Naomi met Kinza, his mom's side of the family.  
+Naomi was the first girl he introduced to his parents.  
+He started a job at DigitalOcean by Mar 2, 2024.  
+He was asked by Dave to teach at UW for S24 after getting declined for two terms.- Wasif was born on October 19, 1992.
+As a child, Wasif attended Trelawny public school.
+Wasif's mother worked as a lunchroom supervisor at Trelawny public school.
+Wasif was friends with Victoria Heart and Waqash during the early school years.
+In grade 6, Wasif met Dan, Umer, and Zakir.
+In grade 7, Wasif met Muzamil.
+In grade 8, Wasif had classes with homeroom teacher Miss. Crawford and a French teacher noted for giving out cokes.
+Wasif had Mr. Rathby as a gym teacher in grade 8.
+Wasif participated in the Terry Fox run and was noted for finishing near the end.
+In grade 9, Wasif met several friends, including Sissi, Shelly, Erica, Philippa, and Jill.
+Wasif joined Air Cadets in grade 9.
+A friend named Athar defended Wasif during a confrontation.
+Wasif worked at Canadian Tire during school years.
+In grade 10, Wasif started using Facebook and spent time with a friend named Ashley.
+Wasif worked at Premier Fitness while in high school.
+Wasif attended grade 12 in 2009, where he achieved a 90 average.
+In 2010, Wasif placed 6th at the OFSAA wrestling competition.
+Wasif moved away from a classmate named Shelly and sat next to Philippa in math class.
+Wasif graduated high school in June 2010.
+In September 2010, Wasif started University pursuing a Double Degree in Math and Business.
+Wasif resided at 520 Sunnydale Place during university.- He dated Rachelle in June 2011, but they broke up in August 2011.
+He moved to 271 Lester Street with Derrick in September 2011.
+He went to jail twice, once in October 2011 from Saturday to Tuesday, and again in November 2011.
+He had a co-op position at BlackBerry starting January 2012.
+He moved back to 271 Lester with Nate, Nico, and Anil in January 2013.
+He started smoking weed weekly with Jayme in June 2013.
+He moved in with Derrick to 110 Columbia Street in May 2013.
+His parents bought a Second Cup in June 2013 but declared bankruptcy in August 2014.
+He moved to various locations: 365 Albert Street in September 2013, 143 Erb Street West with Brad, Anton, Tim, and Shahab in May 2014, and 110 Peppler Street with Brad, Anton, Jayme, and Tim in September 2015.
+He broke up with Nancy in October 2013 and stopped talking to Mia in April 2014.
+He spent February to April 2015 with Mia.
+He started working at BlackBerry in September 2015 and continued until he adjusted to full-time work and school life in 2016.
+He had an interest in AI and academia in 2017 and was promoted to Software Developer II in May 2017.
+He took a vacation to Korea in April 2017.
+He went on a trip to NYC with Zuhair in August 2017.
+He presented a paper in Texas in October 2017.
+He started a job at Bloomberg in June 2018 after graduating with a Master's in April 2018.
+He moved to NYC for Bloomberg but was fired in June 2019.
+He started a job at ByteAcademy in September 2019 but was fired in September 2020.
+He dated Sangeetha for four months in 2020 and went to Kenya with her in August 2019.
+He plans to move back to Canada and get married in 2025.
+He plans to raise a family starting in 2026 and have five children spaced 1.5 years apart between 2027 and 2033.
+He hopes that his dad passes away in 2050 and his mom in 2065.
+He plans to sell his house and travel the world with his wife in later years, including a visit to space.1. He has a strong interest in the Senior Machine Learning position.  
 He has over a decade of combined professional experience and academic achievements.  
-He has 5 years of hands-on experience developing cutting-edge machine learning models.  
-He has leadership skills gained from managing developers as a team lead.  
-He is currently pursuing a PhD in computer science at the University of Waterloo.  
+He has 5 years of experience in developing machine learning models.  
+He is pursuing a PhD in computer science at the University of Waterloo.  
 He teaches computer science classes at the University of Waterloo.  
-His journey began at BlackBerry in software development, where he spent three years specializing in back-end development using C++ and Python.  
-He worked at Twitter, where he developed regression and deep learning models for sentiment analysis and user insights.  
-He held a senior role at Aviva Insurance, where he researched and designed deep learning models for auto insurance quotations.  
-He managed a team of developers at Aviva Insurance.  
-He has made significant contributions to the field of Affective Computing with three publications.  
-He spent two years focused on technical education, teaching advanced computer science material.  
-He led a 4-month onboarding program at Bloomberg focusing on the Python curriculum.  
-He has contributed to the development of Python 3.8.  
-He was a former professional StarCraft gamer representing Canada.  
-He engages in professional poker and stand-up comedy.  
-He has cultivated a substantial online presence with over 10 million views on gaming and software content.  
-He stays physically active and practices meditation.  
-He develops AI agents for various games, including Chess, Mario Games, and Poker.- His name is Wasif Khan.
+He began his software development career at BlackBerry.  
+He spent three years specializing in back-end development at BlackBerry using C++ and Python.  
+- He is a Machine Learning Engineer.
+- He is currently working as a Staff Generative AI Engineer at DigitalOcean remotely since March 2024.
+- He worked as a Staff Machine Learning Engineer at Aviva Insurance in Toronto, ON, from July 2020 to December 2023.
+- He worked as a Senior Machine Learning Engineer at Bloomberg L.P. in New York, NY, from August 2018 to April 2020.
+- He worked as a Machine Learning Engineer at BlackBerry in Waterloo, ON, from September 2015 to June 2018.
+- He was a Professional Gamer in StarCraft remotely from April 2009 to December 2012.
+- He achieved the #1 rank in Canada and was in the top 8 globally as a professional gamer in StarCraft.
+- He represented Canada at the 2012 EOlympic Games (WCG 2012) and was selected as the flag bearer.
+- He studied at the University of Waterloo, earning a Ph.D. in Computer Science focusing on Artificial Intelligence (Generative AI).
+- He obtained a Masters of Mathematics in Computer Science (Affective Computing) from the University of Waterloo.
+- He completed a Bachelors of Computer Science at the University of Waterloo.
+- He has 10 years of experience in analyzing big data, deploying machine learning models, and maintaining ML pipelines.
+- He has lived and worked in Toronto, ON, Waterloo, ON, and New York, NY.He has ten years of experience in software engineering and machine learning model development.  
+He pursued a part-time Ph.D. in Artificial Intelligence.  
+His career journey began at BlackBerry, where he worked for 3 years.  
+At BlackBerry, he honed his skills in back-end development using C++ and Python.  
+He transitioned into roles as a machine learning engineer after graduation.  
+He worked at Bloomberg, where he specialized in natural language processing and deep learning models.  
+At Bloomberg, he developed a system for rank ordering daily events based on market impact.  
+He led an MLOps initiative at Bloomberg to enhance data collection and model deployment.  
+He worked at Aviva Insurance, developing deep learning models for insurance premiums.  
+At Aviva Insurance, his work included fine-tuning an assistant GPT trained on road data.  
+He currently works at DigitalOcean, where he is immersed in LLM development.  
+At DigitalOcean, he advises clients about best practices for training and deploying LLMs.  
+He has taught computer science courses at the University of Waterloo for 6 years.  
+He has represented Canada as a professional StarCraft gamer.He was working full time at Blackberry as of November 6th, 2015.  
+He submitted his application for a master's degree in AI at the University of Waterloo and considered Wilfrid Laurier University as an alternative.  
+His strengths include empathy and focus.  
+He struggles with impulsivity and lack of connection with others.  
+He had feelings for someone named Mia, although the nature of those feelings was uncertain.  
+He smoked a lot of weed during this time period.  
+He was accepted into his master's degree program as of December 3rd, 2015.  
+Mia decided they could no longer be friends due to past issues in their relationship.  
+He learned a lesson about clarifying relationship expectations from his experiences with Mia.  
+He had a realization about relationships after trying to 'teach' Mia a healthier way of living.  
+He began thinking about Shraddha after March 2nd, 2016.  
+He felt a desire for a girlfriend or intimacy.  
+He was living with Brad, Tim, and Anton but considered that they might not be great influences.  
+He started his master's degree by May 20th, 2016, and it had a positive effect on his emotional state.  
+Occasional communication with Shraddha indicated uncertainty about her interest in him.- He was learning about the history of AI/ML in early 2017.
+- He was taking courses on Neural Networks and Deep Learning during the school term mentioned.
+- By May 2017, he was planning to graduate in April of the following year.
+- He was considering starting hobbies such as Yoga and motivational speaking.
+- As of July 7th, 2017, he was seeing someone named Rebecca.
+- Rebecca was said to be leaving at the end of August 2017.
+- He believed Dee was interested in him and he had interest in her too.
+- He worked at BlackBerry and felt dissatisfied with his performance there.
+- His manager and others at BlackBerry believed he was doing an amazing job.
+- He was planning a family trip to Australia after his graduation.
+- By July 10th, 2017, he had presented on deep learning and neural networks.
+- He aimed to graduate with his degree in April.
+- He expressed interest in a Starcraft job with DeepMind or other opportunities in California.
+- He was invited to present at the ACII conference in Texas.1. He submitted an addiction paper that was accepted for publication by CAI on February 14, 2018.
+2. He had an interview with Bloomberg for a "Software Engineering Instructor" role, with the final interview held on March 26, 2018, in NYC.
+3. His role at Bloomberg was particularly appealing because it combined his expertise in computer science and his passion for teaching.
+4. He was previously employed at BlackBerry, where he informed colleagues Alex and Levente about his impending departure.
+5. He received positive feedback on his teaching skills, with ratings of 5/5 from 18 out of 20 students on RateMyProf.
+6. He received confirmation of passing a technical interview for Bloomberg on March 27, 2018, and had a final interview with the lead of engineering.
+7. He moved to NYC to work for Bloomberg as a Software Engineer Instructor, with a salary of approximately $190k and a $30k sign-on bonus.
+8. He received a call from Amy on April 4, 2018, informing him that he got the job at Bloomberg.
+9. He intended to go sober for the month of October.
+10. He had plans to move on to some "really big things" after securing the job at Bloomberg.- He started a new teaching job at Bloomberg, where he feels it is the right role for him and a perfect fit.
+- He met a girl named Ashley Guo and found her interesting, with hopes for the relationship to develop.
+- He is experiencing pressure at work due to underperforming and fears for his job security.
+- His first day back at work from a vacation in Canada was on November 27, 2018.
+- He planned a workout and routine schedule but noted being unable to follow it fully due to smoking around 1pm.
+- He read 'The Power of Habit' to help with maintaining habits and routines.
+- As of March 28, 2019, he received a final notice in February regarding potential job termination if performance does not improve.
+- He decided to get his weed usage under control and planned to remain sober for a weekend, emphasizing the difficulty of this challenge.
+- Gabe is mentioned as a person who was initially joining him in workouts but did not on his return to work.- He lived in Calgary at some point and spent time with a poker crew.
+- In June 2022, he started dating a new girlfriend named Naomi.
+- He has a friend named Labeeb who got married a month before June 2022.
+- In 2022, he started a new job at UW and began teaching.
+- By February 2023, he was 4 days sober from weed.
+- Naomi met his family, specifically Kinza and his mom’s side, in February 2023.
+- Naomi is the first girl he has introduced to his parents.
+- In February 2023, he had been seasonally lecturing at UW for about a year but was unofficially informed that he would not be hired full time.
+- As of March 2024, he got a job at DigitalOcean.
+- Dave asked him to teach in S24 after declining him for 2 terms.He was born in 1992.  
+His mother was a lunchroom supervisor during his time at Trelawny Public School.  
+He was friends with Victoria Heart and Waqash.  
+He met Dan, Umer, and Zakir in grade 6.  
+He met Muzamil in grade 7.  
+He started a gangster phase in grade 7.  
+He fought Matt in 2004.  
+He started going to Dan's house after school for basketball in 2005.  
+Miss. Crawford was his homeroom teacher in grade 8.  
+Mr. Rathby was his gym teacher in grade 8.  
+He met Derrick in grade 8.  
+He started high school in 2006 and met Sissi, Shelly, Erica, Philippa, and Jill.  
+He joined Air Cadets in 2006.  
+Athar fought a white guy who shoved him.  
+He gambled dice with Ehsan after school.  
+He came second in junior ROPSSAA and sixth in senior ROPSSAA in 2006.  
+He worked at Canadian Tire during his teenage years.  
+He got Facebook in 2007.  
+He hung out with Ashley when she returned from Scarborough.  
+He completed junior ROPSSAA with first place and senior ROPSSAA with second place in 2007.  
+He started working at Premier Fitness in 2008.  
+He celebrated his 16th birthday with friends.  
+He came first in ROPSSAA in 2008.  
+He entered his senior year of high school in September 2009.  
+His teacher, Mr. Rogers, yelled at him for losing count of people on a bus to a cross-country meet.  
+He achieved a 90 average in December 2009.  
+He graduated high school in June 2010.  
+He started university in 2010, pursuing a double degree in Math/Business.  
+He lived at 520 Sunnydale Place during his university years.  
+He met Rachelle in October 2010.- He hung out with Rachelle a lot in March 2011.
+- He dated Rachelle in June 2011.
+- Rachelle broke up with him in August 2011.
+- He moved to 271 Lester Street with Derrick in September 2011.
+- He was in jail from Saturday to Tuesday, October 10th, in 2011.
+- He met Nancy and Zuhair in October 2011.
+- He went to jail again in November 2011.
+- He started a co-op at BlackBerry in January 2012.
+- He had a co-op position in Ottawa in September 2012.
+- He moved back to 271 Lester with Nate, Nico, and Anil in January 2013.
+- He moved in with Derrick at 110 Columbia Street in May 2013.
+- He started smoking weed weekly with Jayme in June 2013.
+- His parents bought a Second Cup in June 2013.
+- He met Mia in September 2013.
+- He broke up with Nancy in October 2013.
+- He stopped talking to Mia in January 2014.
+- He started talking to Mia again in March 2014.
+- He stopped talking to Mia in April 2014.
+- His parents declared bankruptcy in August 2014.
+- He moved to 110 University Avenue in September 2014.
+- He spent February to April 2015 with Mia.
+- He graduated in April 2015.
+- He started working at BlackBerry in September 2015.
+- He moved to 110 Peppler Street with Brad, Anton, Jayme, and Tim in September 2015.
+- He started a master's program in May 2016.
+- He celebrated one year at BlackBerry in September 2016.
+- He found interest in AI and academia in 2017.
+- He was promoted to Software Developer II in May 2017.
+- He went to Austria for poker in August 2017.
+- He went to NYC with Zuhair in August 2017.
+- He switched to a research-based master's in September 2017.
+- He became a lecturer for CS115 in January 2018.
+- He graduated with a master's degree and accepted a job at Bloomberg in April 2018.
+- He moved to NYC and started a job at Bloomberg on June 18th, 2018.
+- Katie passed away in June 2018.
+- He got a termination warning at work in February 2019.
+- He was fired from Bloomberg in June 2019.
+- He went to Kenya with Sangeetha in August 2019.
+- He started working at ByteAcademy in September 2019.
+- He dated Sangeetha for four months in 2020.
+- He plans to save 500k, move back to Canada, and get married in 2025.
+- He plans to prepare for family life and first pregnancy in 2026.
+- He plans to have 5 children roughly 1.5 years apart from 2027 to 2033.
+- His dad is expected to pass away in 2050.
+- His mom is expected to pass away in 2065.- He was not an instructor during Phase 2 as mentioned by the feedback.
+- He is good at explaining theories on Data Structures with Python.
+- He was not an instructor for any lectures but only did one code review.
+- He is appreciated for knowing how to explain more difficult Data Science topics comprehensibly.
+- He has vast knowledge on Python and can explain subjects logically well.- Wasif was great and is expected to finish and provide the PowerPoint slides for the next cohorts.- Wasif Khan was an instructor for Intro to DS and Phase 2 of the DS Bootcamp.
+- Wasif Khan's teaching was described as disorganized, but improved after feedback.
+- Wasif Khan was reviewed as varying between 4-7 out of 10 in effectiveness as an instructor.
+- Wasif was noted to need better organization and planning for lectures.- Wasif Khan was an instructor for the Introduction to Data Science course and the Data Science Bootcamp Phase 2.
+- Wasif Khan's teaching for Intro to DS was perceived as not well organized and required better planning.
+- Wasif Khan volunteered to help Student B with her interview challenge using DBT.
+- Wasif Khan was noted to be unorganized and needed to improve his preparation for lectures.
+- Wasif Khan was described as making unprofessional and weird side comments during his teaching.
+- Wasif Khan was rated 6 out of 10 for his instructor abilities.
+- Nick helped Wasif Khan teach and was confused by Wasif.
+- Caroline was noted as very helpful and provided extra resources.
+- Wasif Khan was mentioned in additional feedback regarding interview preparation being very good and helpful, which indirectly involved him.1. He taught CS115 as a lecturer at the University of Waterloo.
+2. He was accepted for a job at BlackBerry in May 2015.
+3. He got accepted for his first research publication in July 2017.
+4. He taught CS115 after being accepted in November 2017.
+5. He got accepted for an addiction research publication in February 2018.
+6. He later got accepted to work at Bloomberg in April 2018.
+7. He spent time with Mia in February 2015.
+8. He visited New York, USA, in August and March 2017 and 2018, respectively.
+9. He traveled to Vienna, Austria, in August 2017.
+10. He visited Texas, USA, in October 2017.
+11. He visited Hanoi, Vietnam, in May 2018.
+12. He dated Rachelle in March 2011, who later broke up with him in August 2011.
+13. He chilled with Jayme and Mia in September 2013.
+14. He experienced guilt when he saw his dad drive Uber 14 hours a day in June 2015.
+15. He potentially involved in Katie’s death in June 2018.
+16. He faced job termination due to weed in February 2018.
+17. He spent time in jail in both October and November 2011.
+18. He felt proud of getting first at ROPSSAA in November 2008.
+19. He was a flag bearer at WCG in December 2012.- On September 19th, Wasif created a group shared folder and a brief presentation outline.
+- On September 21st, Wasif added the presentation structure detailing who should present each section and the duration of each section.
