@@ -1,8 +1,12 @@
+from prompts.file_prompts import check_duplicate, valid_data, generate_facts, \
+        generate_datapoints, input_msg
 from data_loader.sources.templates.base_processor import BaseProcessor
 from misc.logger import logger
+from openai import OpenAI
+from keys.keys import OPENAI_API_KEY
 from io import BytesIO
 from re import split
-
+# import faiss
 
 class Drive(BaseProcessor):
     def __init__(self, user, service, model, data, facts):
@@ -12,6 +16,7 @@ class Drive(BaseProcessor):
         self.data = data
         self.facts = facts
         self.files_processed = list()
+        # self.embeddings = faiss.IndexFlatL2(1536)
 
     def get_data(self):
         query = "'root' in parents or mimeType " \
@@ -29,7 +34,7 @@ class Drive(BaseProcessor):
         facts = []
         for text in [content[i:i+5000] for i in range(0, len(content), 5000)]:
             if (dp := self._generate_facts(text)):
-                facts.append(dp)
+                facts.extend([f'{fact}\n' for fact in dp])
             if (dp := self._generate_datapoints(text)):
                 datapoints.append(dp)
         datapoints = ''.join(datapoints)
@@ -37,30 +42,21 @@ class Drive(BaseProcessor):
         with open(self.data, 'a') as output:
             for index in range(2, len(result), 2):
                 question, answer = self._format(result[index-1], result[index])
-                message = self._generate_input(self.user, question, answer)
+                # question, answer = self._generate_embeddings(question), self._generate_embeddings(answer)
+                # print(f'embedding: {question}: {answer}')
+                message = self._generate_input(question, answer)
+                # self.embeddings.add(np.array([get_embedding("Hello, how are you?")]))  # Store vector
                 output.write(message)
         with open(self.facts, 'a') as output:
             if facts:
+                # facts = [f'[{", ".join([str(msg) for msg in self._generate_embeddings(fact)])[0:-2]}]\n' for fact in facts]
                 output.writelines(facts)
         if datapoints:
             logger.log(f"Processed file: {data['name']}")
             self.files_processed.append(data['name'])
 
     def _valid_data(self, file_name, data):
-        system_prompt = "You are to determine if a given file name is similar " \
-                "to any file name in a list of files. The user input will " \
-                "contain a file name followed by a list of file names in " \
-                "enclosed in brackets separated by commas. Output True if " \
-                "the file name is similar to a file name in the list and " \
-                "False otherwise. " \
-                "For example: " \
-                "input: 'Resume (cover letter, timeline, paper)' and " \
-                "output: False. Another example: " \
-                "input: 'Cover Letter (resume, edu-cover letter, research)' " \
-                "and " \
-                "output: True. Another example: " \
-                "input: 'Timeline (timeline-long, resume, cover letter)' and " \
-                "output: True."
+        system_prompt = check_duplicate
         message = [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": 
@@ -70,28 +66,9 @@ class Drive(BaseProcessor):
                 model=self.model_version, messages=message)
         reply = response.choices[0].message.content.split()[0]
         if reply == "True":
+            print(f'duplicate file: {file_name}')
             return False
-        system_prompt = "You are a personal document classifier. You will " \
-                "be provided the name of the file followed by some contents " \
-                "of the file and you need to determine " \
-                "if the contents of a file contains valuable information or " \
-                "if it is code/AI generated/junk. This can be anything from " \
-                "a diary, resume, transcript, exercise info, nutritional " \
-                "information, among other things one would consider valuable " \
-                "information. Documents containing dates/times are " \
-                "considered valuable. " \
-                "Provide your response with just one word 'True' or 'False' " \
-                "where True means the file contains personal information " \
-                "and False otherwise. If you are unsure, assume False." \
-                "For example: " \
-                "input: 'Resume:\nWasif Khan Resume 5 years experience' and " \
-                "output: True. Another example: " \
-                "input: 'research-12-paper:\nThis paper discusses the side " \
-                "effects of model distillation.' and " \
-                "output: False. Another example: " \
-                "input: 'Timeline:\n1992-2001 School\n2000 Lost " \
-                "virginity. 2003-2007 Worked.' and " \
-                "output: True."
+        system_prompt = valid_data
         message = [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": f'{file_name}:\n{data}'}
@@ -102,45 +79,18 @@ class Drive(BaseProcessor):
         return True if reply == "True" else False
 
     def _generate_facts(self, data):
-        system_prompt ="You are a fact generator. " \
-            "The user will provide long unstructured text " \
-            f"documents. Assume the text is about {self.user}. " \
-            "Generate facts about {self.user}, one fact per " \
-            "line. Focus on providing facts that includes names of friends, " \
-            "family, work companies, job titles, dynamics of relationships, " \
-            "locations and times of events. Provide facts in third person " \
-            "as opposed to first person. Ie. 'He is 32 years old', not " \
-            f"'{self.user} is 32 years old.'. If the text contains no " \
-            f"facts about {self.user}, output 'False'."
+        system_prompt = generate_facts
         message = [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": data}
                 ]
         response = self.model.chat.completions.create(
-                model=self.model_version, messages=message)
-        return response.choices[0].message.content.replace('False', '')
+                model=self.model_version, messages=message).choices[0]
+        response = response.message.content.replace('False', '')
+        return response.split('\n') if response else response
 
     def _generate_datapoints(self, data):
-        system_prompt = "You are a teacher. The user will provide long " \
-            "unstructured text documents. Generate questions that could be " \
-            "asked about the text the user provided alongside the " \
-            "associated correct answer. Only include questions that test " \
-            f"for personal information about {self.user}. Try to include " \
-            f"dates, and names of other family and friends in {self.user}'s " \
-            "life as part of the questions and answers where possible. " \
-            "The " \
-            "questions should be easy and phrased in first-tense such as " \
-            "'How old am I?' not 'How old is Wasif'. The answers should be " \
-            "concise. Spend time to think about the answer. " \
-            "Provide your response in the exact format: " \
-            "'question: <question> answer: <answer>'. If " \
-            "personal information cannot be found, respond with 'False'. " \
-            f"For example: input: '{self.user} is 32 years old, attends " \
-            "university and enjoys working out.' output: " \
-            "'question: How old am I? " \
-            "answer: 32 years old. question: Am I enrolled in school? " \
-            "answer: yes. question: what activity do I enjoy? answer: " \
-            "working out'"
+        system_prompt = generate_datapoints
         message = [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": data}
@@ -176,17 +126,22 @@ class Drive(BaseProcessor):
             logger.log(f'Cannot decode file: {file_name}', 'DEBUG')
             return []
         return content
+        #return [self._generate_embeddings(text) for text in content]
 
-    def _generate_input(self, user, question, answer):
+    def _generate_input(self, question, answer):
         message = '{"messages": [{"role": "system", "content": '\
-            '"Aiza is a personal assistant cuztomized for '\
-            'providing personal information about '\
-            f'me ({self.user})."}}, '\
-            f'{{"role": "user", "content": "{question}"}}, '\
-            f'{{"role": "assistant", '\
-            f'"content": "{answer}"}}]}}\n'
+            f'"{input_msg}"}}, {{"role": "user", "content": "{question}"}}, '\
+            f'{{"role": "assistant", "content": "{answer}"}}]}}\n'
         return message
 
+    def _generate_embeddings(self, text):
+        model = OpenAI(api_key=OPENAI_API_KEY)
+        response = model.embeddings.create(
+            model="text-embedding-3-small",
+            input=text
+        )
+        return response.data[0].embedding
+        
     def _format(self, question, answer):
         question = question.replace('\n', '').replace('"', "'")
         question = question[0:-2] if question[-2] == ' ' else \

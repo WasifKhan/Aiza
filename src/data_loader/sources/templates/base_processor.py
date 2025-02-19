@@ -28,3 +28,7 @@ class BaseProcessor(ABC):
     @abstractmethod
     def _generate_datapoints(self, data):
         pass
+
+    @abstractmethod
+    def _generate_embeddings(self, text):
+        pass

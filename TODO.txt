@@ -2,8 +2,4 @@ fine-tune using embeddings on GPT model
 
 fine-tune using embeddings on BERT model (transformers from huggingface)
 
-facts file for RAG
-
 other sources
-
-

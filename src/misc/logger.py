@@ -8,7 +8,7 @@ class Logger:
         date_fmt = "%H:%M:%S"
         for lib in logging.Logger.manager.loggerDict.keys():
             logging.getLogger(lib).setLevel(logging.WARNING)
-        self.logger = logging.getLogger('Aiza')
+        self.logger = logging.getLogger('__name__')
         self.logger.setLevel(level)
         formatter = logging.Formatter(fmt, datefmt=date_fmt)
         console_handler = logging.StreamHandler()

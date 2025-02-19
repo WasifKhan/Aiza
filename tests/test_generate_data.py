@@ -49,6 +49,7 @@ def test_generate_data():
         self.service = service
         self.data = data_path
         self.facts = facts
+        self.files_processed = list()
 
     def data_loader_init(self, user, sources):
         self.user = user
