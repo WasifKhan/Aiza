@@ -28,6 +28,7 @@ class Google(BaseSource):
         flow = InstalledAppFlow.from_client_secrets_file(self.key, self.scopes)
         creds = flow.run_local_server(port=0)
         user = self.user
+        '''
         self.services['drive'] = Drive(
                                     user,
                                     build("drive", "v3", credentials=creds),
@@ -39,6 +40,7 @@ class Google(BaseSource):
                                      build("gmail", "v1", credentials=creds),
                                      self.model,
                                      self.data)
+        '''
         self.services['maps'] = Maps(
                 user, self.maps, self.model)
         self.services['calendar'] = Calendar(
@@ -51,6 +53,6 @@ class Google(BaseSource):
         for key in self.services:
             logger.log(f'Processing google {key} services')
             service = self.services[key]
-            files = service.get_data()
-            for file in files:
-                service.process_data(file)
+            data = service.get_data()
+            for datapoint in data:
+                service.process_data(datapoint)

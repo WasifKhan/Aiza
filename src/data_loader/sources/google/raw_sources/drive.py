@@ -66,7 +66,6 @@ class Drive(BaseProcessor):
                 model=self.model_version, messages=message)
         reply = response.choices[0].message.content.split()[0]
         if reply == "True":
-            print(f'duplicate file: {file_name}')
             return False
         system_prompt = valid_data
         message = [

@@ -145,3 +145,194 @@ He represented Canada at the 2012 EOlympic Games (WCG 2012) and was selected as 
 He completed his Ph.D. in Computer Science, specializing in Artificial Intelligence (Generative AI), at the University of Waterloo.  
 He holds a Master's degree in Mathematics in Computer Science (Affective Computing) from the University of Waterloo.  
 He earned his Bachelor's degree in Computer Science from the University of Waterloo.
+He has ten years of full-time hands-on experience in software engineering and ML model development.  
+He has pursued a part-time Ph.D. in Artificial Intelligence.  
+His journey began at BlackBerry, where he honed his skills in back-end development using C++ and Python for 3 years.  
+He has transitioned into three pivotal roles as a machine learning engineer after graduation.  
+At Bloomberg, he specialized in applying natural language processing and deep learning models to analyze news articles.  
+He led an MLOps initiative at Bloomberg to enhance data collection and model deployment.  
+At Aviva Insurance, he played a key role in developing advanced deep learning models for insurance premiums.  
+He worked on fine-tuning an assistant GPT trained on road data at Aviva Insurance.  
+He is currently working at DigitalOcean, immersed in LLM development.  
+His work at DigitalOcean involves advising clients about best practices for training and deploying LLMs.  
+He has been teaching computer science courses at UWaterloo for 6 years.  
+He has represented Canada as a professional StarCraft gamer.  
+He maintains an active lifestyle and practices meditation.  
+He is passionate about developing AI agents for various games.  
+His name is Wasif Khan.
+He has ten years of full-time hands-on experience in software engineering and ML model development while pursuing a part-time Ph.D. in Artificial Intelligence.  
+He began his career at BlackBerry, where he worked in back-end development using C++ and Python for 3 years.  
+He transitioned to a machine learning engineer role at Bloomberg, specializing in natural language processing and deep learning models.  
+He led an MLOps initiative at Bloomberg to enhance data collection and model deployment.  
+He played a key role at Aviva Insurance in developing deep learning models for insurance premiums.  
+He is currently working at DigitalOcean, immersed in LLM development with LLaMA, Mixtral, GPT-4o, and Unsloth.  
+He has taught computer science courses at UWaterloo for 6 years.  
+He represented Canada as a professional StarCraft gamer.
+- He is a Staff Generative AI Engineer at DigitalOcean, working remotely since March 2024.
+- He worked as a Staff Machine Learning Engineer at Aviva Insurance in Toronto, ON from July 2020 to December 2023.
+- He previously held the position of Senior Machine Learning Engineer at Bloomberg L.P. in New York, NY from August 2018 to April 2020.
+- He also worked as a Machine Learning Engineer at BlackBerry in Waterloo, ON from September 2015 to June 2018.
+- He achieved and maintained the #1 rank in Canada and top 8 globally as a Professional Gamer in StarCraft from April 2009 to December 2012.
+- He represented Canada at the 2012 EOlympic Games (WCG 2012) and was selected as the flag bearer.
+- He has a Ph.D. in Computer Science specializing in Artificial Intelligence (Generative AI) from the University of Waterloo.
+- He earned a Master's in Mathematics in Computer Science (Affective Computing) from the University of Waterloo.
+- He holds a Bachelor's degree in Computer Science from the University of Waterloo.
+- He currently resides in Toronto, ON.
+He was working full-time at Blackberry on November 6th, 2015.
+
+He submitted his application for a master's degree program in AI at the University of Waterloo.
+
+He considered applying to Wilfrid Laurier University if he did not get into UW.
+
+He wanted a master's degree in AI to pursue programming AI and eventually lecturing.
+
+He struggled with impulsivity and a lack of connection with others.
+
+He had feelings for Mia but was unsure of the nature of those feelings.
+
+He smoked a lot of weed during this period.
+
+He was accepted into his master's degree program by December 3rd, 2015.
+
+Mia told him on December 10th, 2015, that she can no longer consider them friends.
+
+He learned an important lesson about clarifying relationship expectations from his interactions with Mia.
+
+He felt that his roommates Brad, Tim, and Anton were not great influences.
+
+He started his master's degree by May 20th, 2016, which helped improve his emotional state.
+
+He occasionally messaged Shraddha but was uncertain about her interest.
+- He considered living with Jayme instead of living alone.
+- He went on vacation to Mexico at the end of April.
+- He is trying to get over Mia, though he still has a soft spot for her.
+- He has smoked Anton's kief and mentions Anton's supply as his only source.
+- He resides in Waterloo and has difficulty finding weed dealers there.
+- He is studying AI and working as a software developer.
+- He started seeing a therapist for his weed issues.
+- He plans to graduate by August 2018 and hopes to travel the world for four months afterward.
+- He wants to work in California for 3-4 years, find a wife, move back to Canada, start a business in education, raise a family, and die.
+- He has been thinking about starting an AI tutoring company.
+- He talked to Shraddha on the phone and found it enjoyable.
+- He saw Mia at their 4th annual Elgin street party and wants to be friends with her.
+- He received a mark of 68 in neuroanatomy, requiring him to write a petition.
+- His parents' anniversary involves Labeeb buying them watches.
+- Family relationships seem healthy, and his dad appears to be happier.
+- He started working towards becoming debt-free, aiming to pay off his OSAP by August next year, by contributing $1,200/month.
+- Mia reached out to him for help with a rough topic in CS, showing they are on good terms.
+- Shraddha complimented him on being the nicest person she's ever met.
+- He has been playing poker extensively at Woodbine, considering it a potential career or a side job due to the profits.
+- He has been arriving at work around 11:30 am for the past 3 months but feels guilty about not doing enough work.
+- He is pursuing an academic path in Affective Computing, a field that explains human emotions mathematically.
+- He submitted an ethics application for research related to CS886.
+- He was performing well enough in his academics to achieve a 96 in his Affective Computing course, leading his professor to offer him a research opportunity over the summer.
+- His professor wants to help him submit a paper for publication.
+- He aims to finish his degree by April 2018 if he maintains his course load.
+Wasif is learning about AI/ML.  
+He is taking Neural Networks and Deep Learning courses.  
+He has considered yoga and motivational speaking as potential hobbies.  
+He is seeing Rebecca for a few months.  
+Rebecca will be leaving at the end of August.  
+Dee might be interested in him and he might be interested in her too.  
+He feels dissatisfied with his performance at BlackBerry, despite his manager's praise.  
+He tried to arrange a family trip to Australia but it remains uncertain due to a concern about who will take care of Nano.  
+He finished giving a presentation for deep learning and neural networks, which went well.  
+He hopes to graduate in April.  
+He would like to work for DeepMind on a Starcraft project or find opportunities in California.  
+His paper was approved for the ACII conference in Texas.
+- He signed a 1-year lease for a 2-bedroom, 2-bathroom apartment on July 25th, 2017.
+- He has a random roommate named Zaid, whom he moved in with at 275 Larch Street.
+- He participated in a poker tournament in Austria on August 13th, 2017, and ended up winning $500 and another $1000 from cash games.
+- He went skydiving on a Sunday before August 18th, 2017.
+- He has the ambition to work on SC2AI but finds it challenging due to other commitments.
+- He has been involved in philosophy projects and ACII presentations by October 2017.
+- He mentioned starting to regularly smoke again due to stress from work and project deadlines.
+- He was considering starting to stream Poker and blogging around August 2017.
+- He tried stopping smoking regularly and noticed positive effects on his life.
+- In September 2017, he was focused on school, work, yoga, gym, poker, and research.
+- He was working on a research presentation planned for October and a philosophy paper by September 2017.
+He was offered a sessional lecturer position to teach CS115 at the University of Waterloo.  
+He had Kate Larson as a professor, who wrote his reference letter for BlackBerry.  
+Kate Larson became the director recently.  
+He plans to graduate in April and move at the beginning of 2019 for a new job.  
+He quit his job in August and lived at home for four months before planning to move.  
+He talks to Jennifer more frequently.  
+Shraddha broke up with Jaden, and he started talking to her more after the breakup.  
+He has been engaging in yoga to help reduce smoking weed.  
+He won $1,000 in poker in December 2017, which was his biggest win at that time.  
+He submitted an addiction paper that was accepted for CAI on February 14th, 2018, marking a proud moment for him.
+
+He had an interview with Bloomberg for a Software Engineering Instructor role, with the final interview scheduled for March 26th, 2018, in NYC.
+
+He told Alex and Levente that his time at BlackBerry was coming to an end.
+
+He passed the technical interview with Bloomberg by March 27th, 2018, and received positive feedback on his teaching from ratemyprof ratings.
+
+He celebrated a successful day by being intimate with Alyssa.
+
+He learned on April 4th, 2018, that he got the job at Bloomberg when he received a call from Amy.
+
+He officially accepted the Bloomberg offer on April 12th, 2018, with plans to move to NYC for the role as a Software Engineer Instructor.
+- He ended things with Mia in April 2015.
+- He published an ACII paper in approximately May 2017.
+- He was accepted to be a lecturer for January to April 2018.
+- His addiction paper was accepted for publication in February 2018.
+- He found out about a job offer as a teacher with a salary of $250k in April 2018.
+- He left BlackBerry on May 18, 2018.
+- After leaving BlackBerry, he went on vacation until June 18, 2018.
+- He visited Vietnam from May 20th to May 30th, 2018.
+- He was set to start work at Bloomberg on June 18, 2018.
+- He participated in convocation and celebrated Eid on a day before June 17, 2018.
+- He had a job at Bloomberg as of July 24th, 2018.
+- He quit smoking but bought weed again two days before July 24, 2018, and left his temporary housing.
+- He lost $400 in his first NYC poker game the past Thursday relative to July 24th, 2018.
+- He is scheduled to have surgery on his torn meniscus in two weeks from July 24, 2018.
+- He was in Tiffany's room past midnight on August 1st, 2018, and mentioned smoking daily since moving there.
+- He moved into a new apartment by August 10th, 2018, where his parents set up the place after coming from Mississauga.
+- He had knee surgery on August 9th, 2018, which involved drilling 3 holes into his knee to anchor the meniscus and tibia.
+- His parents arrived after his surgery on August 9th and stayed until August 13th, 2018, helping him settle into his apartment.
+- He had a meeting with someone named Clario, which he was late for because he mistook the time.
+- He smoked weed before a 1-on-1 meeting with Clario, which he regretted.
+- He was concerned about the possibility of Clario finding out about his weed smoking during work.
+- By October 16th, 2018, he had been playing PPPoker, initially winning $7,000 and then losing approximately $5,000, which left him with a negative bank balance.
+1. He has a teaching job at Bloomberg.
+2. He finished segment 1 of managing his first class at his new teaching job.
+3. He planned a critical teaching session for intro-python in January.
+4. He faced challenges with being labeled as underperforming at work.
+5. He met a girl named Ashley Guo, and they have been hitting it off.
+6. He returned from a vacation in Canada shortly before November 27, 2018.
+7. He planned to follow a routine that includes working out in the mornings and yoga in the evenings.
+8. He read ‘The Power of Habit’ to improve habit formation.
+9. He plans not to smoke for an entire weekend.
+10. Gabe was not joining him for a gym session.
+- He is currently in Calgary with the poker crew.
+- He got a new job at UW in June 2022.
+- Labeeb, a friend or family member, got married in May 2022, which influenced him significantly.
+- He has been spending a substantial amount of time at Naomi's house, his girlfriend since March 2022.
+- He started a relationship with Naomi in March 2022.
+- Naomi met Kinza and his mother’s side of the family in early February 2023.
+- He has been seasonal lecturing at UW for a year as of February 2023.
+- He is on the cusp of starting a PhD as of February 2023.
+- He got a job at DigitalOcean as of March 2024.
+- Dave asked him to teach in the summer of 2024 at UW.
+He is a lecturer at the University of Waterloo.  
+He teaches 1st-3rd year computer science courses.  
+He taught CS 330 - Management Information Systems.  
+He can be contacted at 437-329-3569 or w23khan@uwaterloo.ca.
+- Wasif Khan is an instructor at a Data Science Bootcamp.
+- Wasif Khan taught Introduction to Data Science and Phase 2 of the bootcamp.
+- Students found Wasif Khan's teaching style to be different and not as organized as Greg Smith.
+- Wasif Khan received varied ratings between 4-7 out of 10 for his teaching.
+- Wasif Khan improved his teaching organization after receiving feedback. 
+- Nick, also referred to as Nicholas Wood, assisted Wasif Khan and was noted to be helpful.
+- Caroline Wakowski was noted to be helpful and provided additional resources.
+- Kai C. was responsible for taking feedback.
+- He is associated with the theory that decision making within the Prisoner's Dilemma is not rational but emotional.
+- He presented his views on the Prisoner's Dilemma at ACII 2017. 
+- His current project is to provide a mathematical framework for understanding addiction grounded in philosophy. 
+- He uses the Prisoner's Dilemma model involving present and future selves in his addiction project.
+Wasif Khan is expected to present a paper in Texas for ACII 2017.  
+He is a Masters student who recently switched from a course-based degree to a research-based one.  
+He is not sponsored by any research grant and is not receiving any salary from the university.  
+The university Computer Science department is able to provide him approximately $600 for the trip.  
+Jesse Hoey is the person writing the letter regarding Wasif's travel grants.
